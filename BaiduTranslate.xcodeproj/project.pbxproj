@@ -1,0 +1,442 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5765273729DBC46600C1AB4C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5765273629DBC46600C1AB4C /* AppDelegate.m */; };
+		5765273D29DBC46600C1AB4C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5765273C29DBC46600C1AB4C /* ViewController.m */; };
+		5765274029DBC46600C1AB4C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5765273E29DBC46600C1AB4C /* Main.storyboard */; };
+		5765274229DBC46900C1AB4C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5765274129DBC46900C1AB4C /* Assets.xcassets */; };
+		5765274529DBC46900C1AB4C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5765274329DBC46900C1AB4C /* LaunchScreen.storyboard */; };
+		5765274829DBC46900C1AB4C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5765274729DBC46900C1AB4C /* main.m */; };
+		5765275029DBC55D00C1AB4C /* TranslateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5765274F29DBC55D00C1AB4C /* TranslateViewController.m */; };
+		5765275329DBC69C00C1AB4C /* NetWork.m in Sources */ = {isa = PBXBuildFile; fileRef = 5765275129DBC69C00C1AB4C /* NetWork.m */; };
+		EAE69FEC50E620993BBC06F7 /* Pods_BaiduTranslate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 322BFE8E4280B01AC4675192 /* Pods_BaiduTranslate.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		322BFE8E4280B01AC4675192 /* Pods_BaiduTranslate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BaiduTranslate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5765273229DBC46600C1AB4C /* BaiduTranslate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BaiduTranslate.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5765273529DBC46600C1AB4C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		5765273629DBC46600C1AB4C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		5765273B29DBC46600C1AB4C /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		5765273C29DBC46600C1AB4C /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		5765273F29DBC46600C1AB4C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		5765274129DBC46900C1AB4C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5765274429DBC46900C1AB4C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		5765274629DBC46900C1AB4C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5765274729DBC46900C1AB4C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		5765274E29DBC55D00C1AB4C /* TranslateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TranslateViewController.h; sourceTree = "<group>"; };
+		5765274F29DBC55D00C1AB4C /* TranslateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TranslateViewController.m; sourceTree = "<group>"; };
+		5765275129DBC69C00C1AB4C /* NetWork.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetWork.m; sourceTree = "<group>"; };
+		5765275229DBC69C00C1AB4C /* NetWork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetWork.h; sourceTree = "<group>"; };
+		7BC0073616713CEBD467CA66 /* Pods-BaiduTranslate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaiduTranslate.release.xcconfig"; path = "Target Support Files/Pods-BaiduTranslate/Pods-BaiduTranslate.release.xcconfig"; sourceTree = "<group>"; };
+		F3969E23F63AFC80D0537F14 /* Pods-BaiduTranslate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaiduTranslate.debug.xcconfig"; path = "Target Support Files/Pods-BaiduTranslate/Pods-BaiduTranslate.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5765272F29DBC46600C1AB4C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EAE69FEC50E620993BBC06F7 /* Pods_BaiduTranslate.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		54F9170C2B6A45253DB87960 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				322BFE8E4280B01AC4675192 /* Pods_BaiduTranslate.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5765272929DBC46600C1AB4C = {
+			isa = PBXGroup;
+			children = (
+				5765273429DBC46600C1AB4C /* BaiduTranslate */,
+				5765273329DBC46600C1AB4C /* Products */,
+				BE403BF07E7948F6971873E5 /* Pods */,
+				54F9170C2B6A45253DB87960 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		5765273329DBC46600C1AB4C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5765273229DBC46600C1AB4C /* BaiduTranslate.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5765273429DBC46600C1AB4C /* BaiduTranslate */ = {
+			isa = PBXGroup;
+			children = (
+				5765273529DBC46600C1AB4C /* AppDelegate.h */,
+				5765273629DBC46600C1AB4C /* AppDelegate.m */,
+				5765274E29DBC55D00C1AB4C /* TranslateViewController.h */,
+				5765274F29DBC55D00C1AB4C /* TranslateViewController.m */,
+				5765275229DBC69C00C1AB4C /* NetWork.h */,
+				5765275129DBC69C00C1AB4C /* NetWork.m */,
+				5765273B29DBC46600C1AB4C /* ViewController.h */,
+				5765273C29DBC46600C1AB4C /* ViewController.m */,
+				5765273E29DBC46600C1AB4C /* Main.storyboard */,
+				5765274129DBC46900C1AB4C /* Assets.xcassets */,
+				5765274329DBC46900C1AB4C /* LaunchScreen.storyboard */,
+				5765274629DBC46900C1AB4C /* Info.plist */,
+				5765274729DBC46900C1AB4C /* main.m */,
+			);
+			path = BaiduTranslate;
+			sourceTree = "<group>";
+		};
+		BE403BF07E7948F6971873E5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F3969E23F63AFC80D0537F14 /* Pods-BaiduTranslate.debug.xcconfig */,
+				7BC0073616713CEBD467CA66 /* Pods-BaiduTranslate.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5765273129DBC46600C1AB4C /* BaiduTranslate */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5765274B29DBC46900C1AB4C /* Build configuration list for PBXNativeTarget "BaiduTranslate" */;
+			buildPhases = (
+				C20B0098F7D008ABC080A811 /* [CP] Check Pods Manifest.lock */,
+				5765272E29DBC46600C1AB4C /* Sources */,
+				5765272F29DBC46600C1AB4C /* Frameworks */,
+				5765273029DBC46600C1AB4C /* Resources */,
+				D2BA431AE517B627FF5C39ED /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BaiduTranslate;
+			productName = BaiduTranslate;
+			productReference = 5765273229DBC46600C1AB4C /* BaiduTranslate.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5765272A29DBC46600C1AB4C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastUpgradeCheck = 1410;
+				TargetAttributes = {
+					5765273129DBC46600C1AB4C = {
+						CreatedOnToolsVersion = 14.1;
+					};
+				};
+			};
+			buildConfigurationList = 5765272D29DBC46600C1AB4C /* Build configuration list for PBXProject "BaiduTranslate" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 5765272929DBC46600C1AB4C;
+			productRefGroup = 5765273329DBC46600C1AB4C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5765273129DBC46600C1AB4C /* BaiduTranslate */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5765273029DBC46600C1AB4C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5765274529DBC46900C1AB4C /* LaunchScreen.storyboard in Resources */,
+				5765274229DBC46900C1AB4C /* Assets.xcassets in Resources */,
+				5765274029DBC46600C1AB4C /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		C20B0098F7D008ABC080A811 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BaiduTranslate-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D2BA431AE517B627FF5C39ED /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BaiduTranslate/Pods-BaiduTranslate-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BaiduTranslate/Pods-BaiduTranslate-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BaiduTranslate/Pods-BaiduTranslate-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5765272E29DBC46600C1AB4C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5765275029DBC55D00C1AB4C /* TranslateViewController.m in Sources */,
+				5765273D29DBC46600C1AB4C /* ViewController.m in Sources */,
+				5765273729DBC46600C1AB4C /* AppDelegate.m in Sources */,
+				5765274829DBC46900C1AB4C /* main.m in Sources */,
+				5765275329DBC69C00C1AB4C /* NetWork.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		5765273E29DBC46600C1AB4C /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5765273F29DBC46600C1AB4C /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		5765274329DBC46900C1AB4C /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5765274429DBC46900C1AB4C /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		5765274929DBC46900C1AB4C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		5765274A29DBC46900C1AB4C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5765274C29DBC46900C1AB4C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F3969E23F63AFC80D0537F14 /* Pods-BaiduTranslate.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 255XLDRV9A;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = BaiduTranslate/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jbinfo.test;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		5765274D29DBC46900C1AB4C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7BC0073616713CEBD467CA66 /* Pods-BaiduTranslate.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 255XLDRV9A;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = BaiduTranslate/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jbinfo.test;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5765272D29DBC46600C1AB4C /* Build configuration list for PBXProject "BaiduTranslate" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5765274929DBC46900C1AB4C /* Debug */,
+				5765274A29DBC46900C1AB4C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5765274B29DBC46900C1AB4C /* Build configuration list for PBXNativeTarget "BaiduTranslate" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5765274C29DBC46900C1AB4C /* Debug */,
+				5765274D29DBC46900C1AB4C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5765272A29DBC46600C1AB4C /* Project object */;
+}

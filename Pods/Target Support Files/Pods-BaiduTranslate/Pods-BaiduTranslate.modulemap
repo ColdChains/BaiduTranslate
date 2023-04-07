@@ -1,0 +1,6 @@
+framework module Pods_BaiduTranslate {
+  umbrella header "Pods-BaiduTranslate-umbrella.h"
+
+  export *
+  module * { export * }
+}
