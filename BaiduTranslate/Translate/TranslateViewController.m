@@ -8,7 +8,8 @@
 #import "TranslateViewController.h"
 #import <CommonCrypto/CommonDigest.h>
 #import "NetWork.h"
-#import "SearchViewController.h"
+#import "DPOViewController.h"
+#import "VPOViewController.h"
 
 @interface TranslateViewController ()
 
@@ -30,8 +31,12 @@
     [self translate:arr];
 }
 
-- (IBAction)nextAction:(id)sender {
-    [self.navigationController pushViewController:[[SearchViewController alloc] init] animated:YES];
+- (IBAction)dpoAction:(id)sender {
+    [self.navigationController pushViewController:[[DPOViewController alloc] init] animated:YES];
+}
+
+- (IBAction)vpoAction:(id)sender {
+    [self.navigationController pushViewController:[[VPOViewController alloc] init] animated:YES];
 }
 
 // 翻译英文

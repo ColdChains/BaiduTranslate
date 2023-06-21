@@ -11,9 +11,14 @@
 		5700CAE42A16250F0058F75B /* bank.xls in Resources */ = {isa = PBXBuildFile; fileRef = 5700CAE32A16250F0058F75B /* bank.xls */; };
 		5700CAE72A162A250058F75B /* NSString+trim.m in Sources */ = {isa = PBXBuildFile; fileRef = 5700CAE62A162A250058F75B /* NSString+trim.m */; };
 		5734A29C2A42D04700835AF9 /* TranslateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5734A29B2A42D04700835AF9 /* TranslateViewController.xib */; };
-		5734A29E2A42D1DF00835AF9 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5734A29D2A42D1DF00835AF9 /* SearchViewController.xib */; };
+		5734A29E2A42D1DF00835AF9 /* DPOViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5734A29D2A42D1DF00835AF9 /* DPOViewController.xib */; };
+		5734A2A32A42D54700835AF9 /* VPOViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5734A2A12A42D54700835AF9 /* VPOViewController.m */; };
+		5734A2A42A42D54700835AF9 /* VPOViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5734A2A22A42D54700835AF9 /* VPOViewController.xib */; };
+		5734A2A82A42D7D000835AF9 /* vpo-android.xls in Resources */ = {isa = PBXBuildFile; fileRef = 5734A2A52A42D7D000835AF9 /* vpo-android.xls */; };
+		5734A2A92A42D7D000835AF9 /* vpo-ios.xls in Resources */ = {isa = PBXBuildFile; fileRef = 5734A2A62A42D7D000835AF9 /* vpo-ios.xls */; };
+		5734A2AA2A42D7D000835AF9 /* vpo-bank.xls in Resources */ = {isa = PBXBuildFile; fileRef = 5734A2A72A42D7D000835AF9 /* vpo-bank.xls */; };
 		5765273729DBC46600C1AB4C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5765273629DBC46600C1AB4C /* AppDelegate.m */; };
-		5765273D29DBC46600C1AB4C /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5765273C29DBC46600C1AB4C /* SearchViewController.m */; };
+		5765273D29DBC46600C1AB4C /* DPOViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5765273C29DBC46600C1AB4C /* DPOViewController.m */; };
 		5765274029DBC46600C1AB4C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5765273E29DBC46600C1AB4C /* Main.storyboard */; };
 		5765274229DBC46900C1AB4C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5765274129DBC46900C1AB4C /* Assets.xcassets */; };
 		5765274529DBC46900C1AB4C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5765274329DBC46900C1AB4C /* LaunchScreen.storyboard */; };
@@ -31,12 +36,18 @@
 		5700CAE52A162A250058F75B /* NSString+trim.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+trim.h"; sourceTree = "<group>"; };
 		5700CAE62A162A250058F75B /* NSString+trim.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+trim.m"; sourceTree = "<group>"; };
 		5734A29B2A42D04700835AF9 /* TranslateViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TranslateViewController.xib; sourceTree = "<group>"; };
-		5734A29D2A42D1DF00835AF9 /* SearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
+		5734A29D2A42D1DF00835AF9 /* DPOViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DPOViewController.xib; sourceTree = "<group>"; };
+		5734A2A02A42D54700835AF9 /* VPOViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VPOViewController.h; sourceTree = "<group>"; };
+		5734A2A12A42D54700835AF9 /* VPOViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VPOViewController.m; sourceTree = "<group>"; };
+		5734A2A22A42D54700835AF9 /* VPOViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VPOViewController.xib; sourceTree = "<group>"; };
+		5734A2A52A42D7D000835AF9 /* vpo-android.xls */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "vpo-android.xls"; sourceTree = "<group>"; };
+		5734A2A62A42D7D000835AF9 /* vpo-ios.xls */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "vpo-ios.xls"; sourceTree = "<group>"; };
+		5734A2A72A42D7D000835AF9 /* vpo-bank.xls */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "vpo-bank.xls"; sourceTree = "<group>"; };
 		5765273229DBC46600C1AB4C /* BaiduTranslate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BaiduTranslate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5765273529DBC46600C1AB4C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		5765273629DBC46600C1AB4C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		5765273B29DBC46600C1AB4C /* SearchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
-		5765273C29DBC46600C1AB4C /* SearchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
+		5765273B29DBC46600C1AB4C /* DPOViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DPOViewController.h; sourceTree = "<group>"; };
+		5765273C29DBC46600C1AB4C /* DPOViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DPOViewController.m; sourceTree = "<group>"; };
 		5765273F29DBC46600C1AB4C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5765274129DBC46900C1AB4C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5765274429DBC46900C1AB4C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -93,6 +104,9 @@
 		5700CAE02A1609100058F75B /* Excel */ = {
 			isa = PBXGroup;
 			children = (
+				5734A2A52A42D7D000835AF9 /* vpo-android.xls */,
+				5734A2A72A42D7D000835AF9 /* vpo-bank.xls */,
+				5734A2A62A42D7D000835AF9 /* vpo-ios.xls */,
 				5700CAE32A16250F0058F75B /* bank.xls */,
 				576DFD242A17050000082D3F /* android.xls */,
 				5700CAE12A16092F0058F75B /* ios.xls */,
@@ -103,11 +117,14 @@
 		5734A29F2A42D1E400835AF9 /* Search */ = {
 			isa = PBXGroup;
 			children = (
-				5765273B29DBC46600C1AB4C /* SearchViewController.h */,
-				5765273C29DBC46600C1AB4C /* SearchViewController.m */,
-				5734A29D2A42D1DF00835AF9 /* SearchViewController.xib */,
+				5765273B29DBC46600C1AB4C /* DPOViewController.h */,
+				5765273C29DBC46600C1AB4C /* DPOViewController.m */,
+				5734A29D2A42D1DF00835AF9 /* DPOViewController.xib */,
 				5700CAE52A162A250058F75B /* NSString+trim.h */,
 				5700CAE62A162A250058F75B /* NSString+trim.m */,
+				5734A2A02A42D54700835AF9 /* VPOViewController.h */,
+				5734A2A12A42D54700835AF9 /* VPOViewController.m */,
+				5734A2A22A42D54700835AF9 /* VPOViewController.xib */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -216,13 +233,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5734A2A42A42D54700835AF9 /* VPOViewController.xib in Resources */,
+				5734A2A82A42D7D000835AF9 /* vpo-android.xls in Resources */,
+				5734A2A92A42D7D000835AF9 /* vpo-ios.xls in Resources */,
+				5734A2AA2A42D7D000835AF9 /* vpo-bank.xls in Resources */,
 				5734A29C2A42D04700835AF9 /* TranslateViewController.xib in Resources */,
 				5765274529DBC46900C1AB4C /* LaunchScreen.storyboard in Resources */,
 				5700CAE42A16250F0058F75B /* bank.xls in Resources */,
 				5765274229DBC46900C1AB4C /* Assets.xcassets in Resources */,
 				576DFD252A17050000082D3F /* android.xls in Resources */,
 				5765274029DBC46600C1AB4C /* Main.storyboard in Resources */,
-				5734A29E2A42D1DF00835AF9 /* SearchViewController.xib in Resources */,
+				5734A29E2A42D1DF00835AF9 /* DPOViewController.xib in Resources */,
 				5700CAE22A16092F0058F75B /* ios.xls in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -278,8 +299,9 @@
 			files = (
 				5765275029DBC55D00C1AB4C /* TranslateViewController.m in Sources */,
 				5700CAE72A162A250058F75B /* NSString+trim.m in Sources */,
-				5765273D29DBC46600C1AB4C /* SearchViewController.m in Sources */,
+				5765273D29DBC46600C1AB4C /* DPOViewController.m in Sources */,
 				5765273729DBC46600C1AB4C /* AppDelegate.m in Sources */,
+				5734A2A32A42D54700835AF9 /* VPOViewController.m in Sources */,
 				5765274829DBC46900C1AB4C /* main.m in Sources */,
 				5765275329DBC69C00C1AB4C /* NetWork.m in Sources */,
 			);

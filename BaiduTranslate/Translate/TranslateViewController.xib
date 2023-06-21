@@ -28,21 +28,31 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="stA-bP-zWt">
-                    <rect key="frame" x="166.66666666666666" y="226" width="60" height="35"/>
+                    <rect key="frame" x="167" y="226" width="59" height="35"/>
                     <state key="normal" title="Button"/>
-                    <buttonConfiguration key="configuration" style="plain" title="Next"/>
+                    <buttonConfiguration key="configuration" style="plain" title="DPO"/>
                     <connections>
-                        <action selector="nextAction:" destination="-1" eventType="touchUpInside" id="Vr7-Nw-Pjr"/>
+                        <action selector="dpoAction:" destination="-1" eventType="touchUpInside" id="Qi8-bC-qvi"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SkP-Me-vS5">
+                    <rect key="frame" x="167" y="327" width="59" height="35"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" title="VPO"/>
+                    <connections>
+                        <action selector="vpoAction:" destination="-1" eventType="touchUpInside" id="uBo-tn-MPk"/>
                     </connections>
                 </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstItem="SkP-Me-vS5" firstAttribute="top" secondItem="stA-bP-zWt" secondAttribute="bottom" constant="66" id="1M0-u4-Vyn"/>
                 <constraint firstItem="rFf-or-24H" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="bbS-OL-3iG"/>
                 <constraint firstItem="rFf-or-24H" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="66" id="gH7-A1-a2t"/>
                 <constraint firstItem="stA-bP-zWt" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="l70-fg-eId"/>
                 <constraint firstItem="stA-bP-zWt" firstAttribute="top" secondItem="rFf-or-24H" secondAttribute="bottom" constant="66" id="mgd-89-LB4"/>
+                <constraint firstItem="SkP-Me-vS5" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="nhb-mn-RST"/>
             </constraints>
             <point key="canvasLocation" x="76" y="20"/>
         </view>

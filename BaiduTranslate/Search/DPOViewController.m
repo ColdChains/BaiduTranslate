@@ -1,21 +1,22 @@
 //
-//  ViewController.m
+//  DPOViewController.m
 //  BaiduTranslate
 //
 //  Created by lax on 2023/4/4.
 //
 
-#import "SearchViewController.h"
+#import "DPOViewController.h"
 #import "NSString+trim.h"
 
-@interface SearchViewController ()
+@interface DPOViewController ()
 
 @end
 
-@implementation SearchViewController
+@implementation DPOViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"DPO";
 }
 
 - (IBAction)iOSAction:(id)sender {
@@ -33,9 +34,9 @@
     
     // 读取资源文件(英-越南)
     NSString *path2 = [[NSBundle mainBundle] pathForResource:@"bank" ofType:@"xls"];
-    NSArray<NSString *> *dataArray2 = [self readFileFromPath:path2];
+    NSArray<NSString *> *sourceDataArray = [self readFileFromPath:path2];
     
-    // 已翻译的越南语
+    // 匹配到的越南语
     NSMutableArray *result = [NSMutableArray array];
     NSMutableArray *resultVi = [NSMutableArray array];
     // 未翻译的中文
@@ -58,10 +59,10 @@
         NSString *formatStr = @"\"<string name=\"%@\">%@</string>";
         
         BOOL have = NO;
-        for (int i = 0; i < dataArray2.count / 2; i+=2) {
-            if ([value.lowercaseString isEqualToString:dataArray2[i].lowercaseString]) {
-                [result addObject:[NSString stringWithFormat:formatStr, key, dataArray2[i + 1]]];
-                [resultVi addObject:[NSString stringWithFormat:formatStr, key, dataArray2[i + 1]]];
+        for (int i = 0; i < sourceDataArray.count / 2; i+=2) {
+            if ([value.lowercaseString isEqualToString:sourceDataArray[i].lowercaseString]) {
+                [result addObject:[NSString stringWithFormat:formatStr, key, sourceDataArray[i + 1]]];
+                [resultVi addObject:[NSString stringWithFormat:formatStr, key, sourceDataArray[i + 1]]];
                 have = YES;
                 break;
             }
@@ -74,10 +75,10 @@
         }
     }
     
-    NSLog(@"\n result = \n%@", result);
-    NSLog(@"\n blankZh = \n%@", blankZh);
-    NSLog(@"\n blankEn = \n%@", blankEn);
-    NSLog(@"匹配完成");
+    NSLog(@"\n 匹配到的越南语 = \n%@", result);
+    NSLog(@"\n 未匹配的中文 = \n%@", blankZh);
+    NSLog(@"\n 未匹配的英文 = \n%@", blankEn);
+    NSLog(@"Android匹配完成");
     
 }
 
@@ -85,11 +86,12 @@
     // 读取需要翻译的文件
     NSString *path = [[NSBundle mainBundle] pathForResource:@"ios" ofType:@"xls"];
     NSArray<NSString *> *dataArray = [self readFileFromPath:path];
+    
     // 读取资源文件
     NSString *path2 = [[NSBundle mainBundle] pathForResource:@"bank" ofType:@"xls"];
-    NSArray<NSString *> *dataArray2 = [self readFileFromPath:path2];
+    NSArray<NSString *> *sourceDataArray = [self readFileFromPath:path2];
     
-    // 已翻译的越南语
+    // 匹配到的越南语
     NSMutableArray *result = [NSMutableArray array];
     NSMutableArray *resultVi = [NSMutableArray array];
     // 未翻译的中文
@@ -117,10 +119,10 @@
         NSString *formatStr = @"\"%@\" = \"%@\";";
         
         BOOL have = NO;
-        for (int i = 0; i < dataArray2.count / 2; i+=2) {
-            if ([value.lowercaseString isEqualToString:dataArray2[i].lowercaseString]) {
-                [result addObject:[NSString stringWithFormat:formatStr, key, dataArray2[i + 1]]];
-                [resultVi addObject:[NSString stringWithFormat:formatStr, key, dataArray2[i + 1]]];
+        for (int i = 0; i < sourceDataArray.count / 2; i+=2) {
+            if ([value.lowercaseString isEqualToString:sourceDataArray[i].lowercaseString]) {
+                [result addObject:[NSString stringWithFormat:formatStr, key, sourceDataArray[i + 1]]];
+                [resultVi addObject:[NSString stringWithFormat:formatStr, key, sourceDataArray[i + 1]]];
                 have = YES;
                 break;
             }
@@ -135,8 +137,8 @@
     
     NSLog(@"\n 匹配到的越南语 = \n%@", result);
     NSLog(@"\n 未匹配的中文 = \n%@", blankZh);
-    NSLog(@"\n 未匹配的英文文 = \n%@", blankEn);
-    NSLog(@"匹配完成");
+    NSLog(@"\n 未匹配的英文 = \n%@", blankEn);
+    NSLog(@"iOS匹配完成");
     
 }
 
