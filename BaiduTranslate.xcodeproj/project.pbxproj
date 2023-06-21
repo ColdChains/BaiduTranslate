@@ -7,24 +7,36 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5700CAE22A16092F0058F75B /* ios.xls in Resources */ = {isa = PBXBuildFile; fileRef = 5700CAE12A16092F0058F75B /* ios.xls */; };
+		5700CAE42A16250F0058F75B /* bank.xls in Resources */ = {isa = PBXBuildFile; fileRef = 5700CAE32A16250F0058F75B /* bank.xls */; };
+		5700CAE72A162A250058F75B /* NSString+trim.m in Sources */ = {isa = PBXBuildFile; fileRef = 5700CAE62A162A250058F75B /* NSString+trim.m */; };
+		5734A29C2A42D04700835AF9 /* TranslateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5734A29B2A42D04700835AF9 /* TranslateViewController.xib */; };
+		5734A29E2A42D1DF00835AF9 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5734A29D2A42D1DF00835AF9 /* SearchViewController.xib */; };
 		5765273729DBC46600C1AB4C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5765273629DBC46600C1AB4C /* AppDelegate.m */; };
-		5765273D29DBC46600C1AB4C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5765273C29DBC46600C1AB4C /* ViewController.m */; };
+		5765273D29DBC46600C1AB4C /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5765273C29DBC46600C1AB4C /* SearchViewController.m */; };
 		5765274029DBC46600C1AB4C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5765273E29DBC46600C1AB4C /* Main.storyboard */; };
 		5765274229DBC46900C1AB4C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5765274129DBC46900C1AB4C /* Assets.xcassets */; };
 		5765274529DBC46900C1AB4C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5765274329DBC46900C1AB4C /* LaunchScreen.storyboard */; };
 		5765274829DBC46900C1AB4C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5765274729DBC46900C1AB4C /* main.m */; };
 		5765275029DBC55D00C1AB4C /* TranslateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5765274F29DBC55D00C1AB4C /* TranslateViewController.m */; };
 		5765275329DBC69C00C1AB4C /* NetWork.m in Sources */ = {isa = PBXBuildFile; fileRef = 5765275129DBC69C00C1AB4C /* NetWork.m */; };
+		576DFD252A17050000082D3F /* android.xls in Resources */ = {isa = PBXBuildFile; fileRef = 576DFD242A17050000082D3F /* android.xls */; };
 		EAE69FEC50E620993BBC06F7 /* Pods_BaiduTranslate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 322BFE8E4280B01AC4675192 /* Pods_BaiduTranslate.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		322BFE8E4280B01AC4675192 /* Pods_BaiduTranslate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BaiduTranslate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5700CAE12A16092F0058F75B /* ios.xls */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ios.xls; sourceTree = "<group>"; };
+		5700CAE32A16250F0058F75B /* bank.xls */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = bank.xls; sourceTree = "<group>"; };
+		5700CAE52A162A250058F75B /* NSString+trim.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+trim.h"; sourceTree = "<group>"; };
+		5700CAE62A162A250058F75B /* NSString+trim.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+trim.m"; sourceTree = "<group>"; };
+		5734A29B2A42D04700835AF9 /* TranslateViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TranslateViewController.xib; sourceTree = "<group>"; };
+		5734A29D2A42D1DF00835AF9 /* SearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
 		5765273229DBC46600C1AB4C /* BaiduTranslate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BaiduTranslate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5765273529DBC46600C1AB4C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		5765273629DBC46600C1AB4C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		5765273B29DBC46600C1AB4C /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		5765273C29DBC46600C1AB4C /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		5765273B29DBC46600C1AB4C /* SearchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
+		5765273C29DBC46600C1AB4C /* SearchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		5765273F29DBC46600C1AB4C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5765274129DBC46900C1AB4C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5765274429DBC46900C1AB4C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -34,6 +46,7 @@
 		5765274F29DBC55D00C1AB4C /* TranslateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TranslateViewController.m; sourceTree = "<group>"; };
 		5765275129DBC69C00C1AB4C /* NetWork.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetWork.m; sourceTree = "<group>"; };
 		5765275229DBC69C00C1AB4C /* NetWork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetWork.h; sourceTree = "<group>"; };
+		576DFD242A17050000082D3F /* android.xls */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = android.xls; sourceTree = "<group>"; };
 		7BC0073616713CEBD467CA66 /* Pods-BaiduTranslate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaiduTranslate.release.xcconfig"; path = "Target Support Files/Pods-BaiduTranslate/Pods-BaiduTranslate.release.xcconfig"; sourceTree = "<group>"; };
 		F3969E23F63AFC80D0537F14 /* Pods-BaiduTranslate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaiduTranslate.debug.xcconfig"; path = "Target Support Files/Pods-BaiduTranslate/Pods-BaiduTranslate.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -56,6 +69,47 @@
 				322BFE8E4280B01AC4675192 /* Pods_BaiduTranslate.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5700CADE2A1608ED0058F75B /* Translate */ = {
+			isa = PBXGroup;
+			children = (
+				5765274E29DBC55D00C1AB4C /* TranslateViewController.h */,
+				5765274F29DBC55D00C1AB4C /* TranslateViewController.m */,
+				5734A29B2A42D04700835AF9 /* TranslateViewController.xib */,
+			);
+			path = Translate;
+			sourceTree = "<group>";
+		};
+		5700CADF2A1608FC0058F75B /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				5765275229DBC69C00C1AB4C /* NetWork.h */,
+				5765275129DBC69C00C1AB4C /* NetWork.m */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		5700CAE02A1609100058F75B /* Excel */ = {
+			isa = PBXGroup;
+			children = (
+				5700CAE32A16250F0058F75B /* bank.xls */,
+				576DFD242A17050000082D3F /* android.xls */,
+				5700CAE12A16092F0058F75B /* ios.xls */,
+			);
+			path = Excel;
+			sourceTree = "<group>";
+		};
+		5734A29F2A42D1E400835AF9 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				5765273B29DBC46600C1AB4C /* SearchViewController.h */,
+				5765273C29DBC46600C1AB4C /* SearchViewController.m */,
+				5734A29D2A42D1DF00835AF9 /* SearchViewController.xib */,
+				5700CAE52A162A250058F75B /* NSString+trim.h */,
+				5700CAE62A162A250058F75B /* NSString+trim.m */,
+			);
+			path = Search;
 			sourceTree = "<group>";
 		};
 		5765272929DBC46600C1AB4C = {
@@ -81,12 +135,10 @@
 			children = (
 				5765273529DBC46600C1AB4C /* AppDelegate.h */,
 				5765273629DBC46600C1AB4C /* AppDelegate.m */,
-				5765274E29DBC55D00C1AB4C /* TranslateViewController.h */,
-				5765274F29DBC55D00C1AB4C /* TranslateViewController.m */,
-				5765275229DBC69C00C1AB4C /* NetWork.h */,
-				5765275129DBC69C00C1AB4C /* NetWork.m */,
-				5765273B29DBC46600C1AB4C /* ViewController.h */,
-				5765273C29DBC46600C1AB4C /* ViewController.m */,
+				5734A29F2A42D1E400835AF9 /* Search */,
+				5700CAE02A1609100058F75B /* Excel */,
+				5700CADE2A1608ED0058F75B /* Translate */,
+				5700CADF2A1608FC0058F75B /* Network */,
 				5765273E29DBC46600C1AB4C /* Main.storyboard */,
 				5765274129DBC46900C1AB4C /* Assets.xcassets */,
 				5765274329DBC46900C1AB4C /* LaunchScreen.storyboard */,
@@ -164,9 +216,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5734A29C2A42D04700835AF9 /* TranslateViewController.xib in Resources */,
 				5765274529DBC46900C1AB4C /* LaunchScreen.storyboard in Resources */,
+				5700CAE42A16250F0058F75B /* bank.xls in Resources */,
 				5765274229DBC46900C1AB4C /* Assets.xcassets in Resources */,
+				576DFD252A17050000082D3F /* android.xls in Resources */,
 				5765274029DBC46600C1AB4C /* Main.storyboard in Resources */,
+				5734A29E2A42D1DF00835AF9 /* SearchViewController.xib in Resources */,
+				5700CAE22A16092F0058F75B /* ios.xls in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -220,7 +277,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				5765275029DBC55D00C1AB4C /* TranslateViewController.m in Sources */,
-				5765273D29DBC46600C1AB4C /* ViewController.m in Sources */,
+				5700CAE72A162A250058F75B /* NSString+trim.m in Sources */,
+				5765273D29DBC46600C1AB4C /* SearchViewController.m in Sources */,
 				5765273729DBC46600C1AB4C /* AppDelegate.m in Sources */,
 				5765274829DBC46900C1AB4C /* main.m in Sources */,
 				5765275329DBC69C00C1AB4C /* NetWork.m in Sources */,

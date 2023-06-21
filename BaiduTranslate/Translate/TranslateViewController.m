@@ -8,6 +8,7 @@
 #import "TranslateViewController.h"
 #import <CommonCrypto/CommonDigest.h>
 #import "NetWork.h"
+#import "SearchViewController.h"
 
 @interface TranslateViewController ()
 
@@ -17,16 +18,20 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    // 在此设置需要翻译的文字 在翻译完成处查看
+}
+
+- (IBAction)translateAction:(id)sender {
+    // flutter文件格式翻译
+    // 在此设置需要翻译的文字 在"翻译完成"处查看打印结果
     NSArray *arr = @[
         @"为什么",
         @"状态",
-        @"原因分析",
-        @"确认提交吗",
     ];
     [self translate:arr];
-    
+}
+
+- (IBAction)nextAction:(id)sender {
+    [self.navigationController pushViewController:[[SearchViewController alloc] init] animated:YES];
 }
 
 // 翻译英文
@@ -65,6 +70,13 @@
             // key：小驼峰 英文：首字母大写
             NSString *key = [dst.capitalizedString stringByReplacingOccurrencesOfString:@" " withString:@""];
             key = [[key substringToIndex:1].lowercaseString stringByAppendingString: [key substringFromIndex:1]];
+            key = [key stringByReplacingOccurrencesOfString:@"," withString:@""];
+            key = [key stringByReplacingOccurrencesOfString:@"." withString:@""];
+            key = [key stringByReplacingOccurrencesOfString:@"?" withString:@""];
+            key = [key stringByReplacingOccurrencesOfString:@":" withString:@""];
+            key = [key stringByReplacingOccurrencesOfString:@"(" withString:@""];
+            key = [key stringByReplacingOccurrencesOfString:@")" withString:@""];
+            key = [key stringByReplacingOccurrencesOfString:@"&" withString:@""];
             [keyArr addObject:key];
             
             [zhArr addObject:[NSString stringWithFormat:@"\"%@\" : \"%@\"", key, src]];
