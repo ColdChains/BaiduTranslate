@@ -19,6 +19,31 @@
     self.title = @"VPO";
 }
 
+- (void)transFormFile {
+    // 读取资源文件(中-英-韩)
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"vpo-bank-new" ofType:@"xls"];
+    NSData *fileData = [NSFileManager.defaultManager contentsAtPath:path];
+    // 使用UTF16才能显示汉字
+    NSString *dataStr = [[NSString alloc] initWithData:fileData encoding:NSUTF16StringEncoding];
+    //转数组
+    NSArray<NSString *> *fileArr = [dataStr componentsSeparatedByString:@"\r\n"];
+    
+    NSMutableArray<NSString *> *resultArr = [NSMutableArray arrayWithCapacity:0];
+    
+    NSString *item = fileArr.firstObject;
+    int i = 0;
+    while (item != nil) {
+        NSArray *arr = [item componentsSeparatedByString:@"\t"];
+        NSString *key = arr.firstObject;
+        NSString *value = arr.count > 1 ? arr[1] : @"";
+        if (fileArr[i + 1]) {
+            
+        }
+    }
+    
+    
+}
+
 - (IBAction)iOSAction:(id)sender {
     [self runIOS];
 }
@@ -30,11 +55,28 @@
 - (void)runAndroid {
     // 读取需要翻译的文件(中文)
     NSString *path = [[NSBundle mainBundle] pathForResource:@"vpo-android" ofType:@"xls"];
-    NSArray<NSString *> *dataArray = [self readFileFromPath:path];
+    NSArray<NSString *> *dataArray = [self readFileFirstColumnFromPath:path];
     
     // 读取资源文件(中-英-韩)
-    NSString *path2 = [[NSBundle mainBundle] pathForResource:@"vpo-bank" ofType:@"xls"];
-    NSArray<NSString *> *sourceDataArray = [self readFileFromPath:path2];
+    NSString *bankPath = [[NSBundle mainBundle] pathForResource:@"vpo-bank" ofType:@"xls"];
+    NSArray<NSString *> *sourceDataArray = [self readFileFirstColumnFromPath:bankPath];
+    
+    // 读取更新后的文件(中-韩)
+    NSString *bankPathNew = [[NSBundle mainBundle] pathForResource:@"vpo-bank-new" ofType:@"xls"];
+    NSArray *fileArr = [self readFileFromPath:bankPathNew];
+    NSMutableDictionary *enSourceData = [NSMutableDictionary dictionary];
+    NSMutableDictionary *koSourceData = [NSMutableDictionary dictionary];
+    for (NSString *item in fileArr) {
+        NSArray<NSString *> *arr = [item componentsSeparatedByString:@"\t"];
+        NSString *key = @"";
+        if (arr.count > 1 && arr[1].length > 0) {
+            key = arr[1];
+            NSString *value = arr.count > 2 ? arr[2] : @"";
+            [enSourceData setValue:value forKey:key];
+            value = arr.count > 3 ? arr[3] : @"";
+            [koSourceData setValue:value forKey:key];
+        }
+    }
     
     // 匹配到的英文
     NSMutableArray *resultEn = [NSMutableArray array];
@@ -59,12 +101,25 @@
         NSString *value = [arr.lastObject componentsSeparatedByString:@"</string>"].firstObject;
         
         BOOL have = NO;
-        for (int i = 0; i < sourceDataArray.count; i++) {
-            if ([value isEqualToString:sourceDataArray[i]]) {
-                [resultEn addObject:[NSString stringWithFormat:formatStr, key, sourceDataArray[i + 1]]];
-                [resultKo addObject:[NSString stringWithFormat:formatStr, key, sourceDataArray[i + 2]]];
+        
+        // 匹配新的
+        if (!have) {
+            if ([enSourceData objectForKey:value] != nil && [koSourceData objectForKey:value] != nil) {
+                [resultEn addObject:[NSString stringWithFormat:formatStr, key, [enSourceData objectForKey:value]]];
+                [resultKo addObject:[NSString stringWithFormat:formatStr, key, [koSourceData objectForKey:value]]];
                 have = YES;
-                break;
+            }
+        }
+        
+        // 匹配旧的
+        if (!have) {
+            for (int i = 0; i < sourceDataArray.count; i++) {
+                if ([value isEqualToString:sourceDataArray[i]]) {
+                    [resultEn addObject:[NSString stringWithFormat:formatStr, key, sourceDataArray[i + 1]]];
+                    [resultKo addObject:[NSString stringWithFormat:formatStr, key, sourceDataArray[i + 2]]];
+                    have = YES;
+                    break;
+                }
             }
         }
         
@@ -83,11 +138,28 @@
 - (void)runIOS {
     // 读取需要翻译的文件
     NSString *path = [[NSBundle mainBundle] pathForResource:@"vpo-ios" ofType:@"xls"];
-    NSArray<NSString *> *dataArray = [self readFileFromPath:path];
+    NSArray<NSString *> *dataArray = [self readFileFirstColumnFromPath:path];
     
     // 读取资源文件
-    NSString *path2 = [[NSBundle mainBundle] pathForResource:@"vpo-bank" ofType:@"xls"];
-    NSArray<NSString *> *sourceDataArray = [self readFileFromPath:path2];
+    NSString *bankPath = [[NSBundle mainBundle] pathForResource:@"vpo-bank" ofType:@"xls"];
+    NSArray<NSString *> *sourceDataArray = [self readFileFirstColumnFromPath:bankPath];
+    
+    // 读取更新后的文件(中-韩)
+    NSString *bankPathNew = [[NSBundle mainBundle] pathForResource:@"vpo-bank-new" ofType:@"xls"];
+    NSArray *fileArr = [self readFileFromPath:bankPathNew];
+    NSMutableDictionary *enSourceData = [NSMutableDictionary dictionary];
+    NSMutableDictionary *koSourceData = [NSMutableDictionary dictionary];
+    for (NSString *item in fileArr) {
+        NSArray<NSString *> *arr = [item componentsSeparatedByString:@"\t"];
+        NSString *key = @"";
+        if (arr.count > 1 && arr[1].length > 0) {
+            key = arr[1];
+            NSString *value = arr.count > 2 ? arr[2] : @"";
+            [enSourceData setValue:value forKey:key];
+            value = arr.count > 3 ? arr[3] : @"";
+            [koSourceData setValue:value forKey:key];
+        }
+    }
     
     // 匹配到的英文
     NSMutableArray *resultEn = [NSMutableArray array];
@@ -110,12 +182,25 @@
         NSString *value = [arr.lastObject componentsSeparatedByString:@"</string>"].firstObject;
         
         BOOL have = NO;
-        for (int i = 0; i < sourceDataArray.count; i++) {
-            if ([value isEqualToString:sourceDataArray[i]]) {
-                [resultEn addObject:[NSString stringWithFormat:formatStr, key, sourceDataArray[i + 1]]];
-                [resultKo addObject:[NSString stringWithFormat:formatStr, key, sourceDataArray[i + 2]]];
+        
+        // 匹配新的
+        if (!have) {
+            if ([enSourceData objectForKey:value] != nil && [koSourceData objectForKey:value] != nil) {
+                [resultEn addObject:[NSString stringWithFormat:formatStr, key, [enSourceData objectForKey:value]]];
+                [resultKo addObject:[NSString stringWithFormat:formatStr, key, [koSourceData objectForKey:value]]];
                 have = YES;
-                break;
+            }
+        }
+        
+        // 匹配旧的
+        if (!have) {
+            for (int i = 0; i < sourceDataArray.count; i++) {
+                if ([value isEqualToString:sourceDataArray[i]]) {
+                    [resultEn addObject:[NSString stringWithFormat:formatStr, key, sourceDataArray[i + 1]]];
+                    [resultKo addObject:[NSString stringWithFormat:formatStr, key, sourceDataArray[i + 2]]];
+                    have = YES;
+                    break;
+                }
             }
         }
         
@@ -170,7 +255,7 @@
 }
 
 // 读取文件内容
-- (NSArray<NSString *> *)readFileFromPath:(NSString *)path {
+- (NSArray<NSString *> *)readFileFirstColumnFromPath:(NSString *)path {
     NSData *fileData = [NSFileManager.defaultManager contentsAtPath:path];
     // 使用UTF16才能显示汉字
     NSString *dataStr = [[NSString alloc] initWithData:fileData encoding:NSUTF16StringEncoding];
@@ -187,6 +272,16 @@
         }
     }
     return muArr;
+}
+
+// 读取文件内容
+- (NSArray<NSString *> *)readFileFromPath:(NSString *)path {
+    NSData *fileData = [NSFileManager.defaultManager contentsAtPath:path];
+    // 使用UTF16才能显示汉字
+    NSString *dataStr = [[NSString alloc] initWithData:fileData encoding:NSUTF16StringEncoding];
+    //转数组
+    NSArray<NSString *> *fileArr = [dataStr componentsSeparatedByString:@"\r\n"];
+    return fileArr;
 }
 
 
