@@ -20,16 +20,20 @@
 }
 
 - (IBAction)iOSAction:(id)sender {
-    [self startSearchInBank:NO];
+    [self startSearchInBank:YES isAndroid:NO isFlutter:NO];
 }
 
 - (IBAction)androidAction:(id)sender {
-    [self startSearchInBank:YES];
+    [self startSearchInBank:YES isAndroid:YES isFlutter:NO];
 }
 
-- (void)startSearchInBank:(BOOL)isAndroid {
+- (IBAction)flutterAction:(id)sender {
+    [self startSearchInBank:YES isAndroid:NO isFlutter:YES];
+}
+
+- (void)startSearchInBank:(BOOL)inBank isAndroid:(BOOL)isAndroid isFlutter:(BOOL)isFlutter {
     // 读取源文件
-    NSString *path = [[NSBundle mainBundle] pathForResource:isAndroid ? @"vpo-android" : @"vpo-ios" ofType:@"xls"];
+    NSString *path = [[NSBundle mainBundle] pathForResource:isAndroid ? @"vpo-android" : isFlutter ? @"vpo-flutter" : @"vpo-ios" ofType:@"xls"];
     NSArray *dataArray = [self readFileFromPath:path];
     NSMutableArray *keyArr = [NSMutableArray array];
     NSMutableArray *valueArr = [NSMutableArray array];
@@ -40,6 +44,10 @@
     if (isAndroid) {
         // <string name="shouye">首页</string>
         formatStr = @"<string name=\"%@\">%@</string>";
+    }
+    if (isFlutter) {
+        // fiveCheckList: "5S检查表"
+        formatStr = @"\"%@\": \"%@\"";
     }
     
     ///===========解析源文件===============
@@ -56,6 +64,12 @@
                 arr = [current componentsSeparatedByString:@"\">"];
                 key = [arr.firstObject componentsSeparatedByString:@"<string name=\""].lastObject;
                 value = [arr.lastObject componentsSeparatedByString:@"</string>"].firstObject;
+                key = [key stringByReplacingOccurrencesOfString:@"\"" withString:@""];
+            }
+            if (isFlutter) {
+                arr = [current componentsSeparatedByString:@":"];
+                key = arr.firstObject;
+                value = arr.lastObject;
             }
             if (key != nil && value != nil) {
                 [keyArr addObject:key];
@@ -72,6 +86,12 @@
                 arr = [current componentsSeparatedByString:@"\">"];
                 key = [arr.firstObject componentsSeparatedByString:@"<string name=\""].lastObject;
                 value = [arr.lastObject componentsSeparatedByString:@"</string>"].firstObject;
+                key = [key stringByReplacingOccurrencesOfString:@"\"" withString:@""];
+            }
+            if (isFlutter) {
+                arr = [current componentsSeparatedByString:@":"];
+                key = arr.firstObject;
+                value = arr.lastObject;
             }
             if (key != nil && value != nil) {
                 [oriSourceDataEn setValue:value forKey:key];
@@ -87,6 +107,12 @@
                 arr = [current componentsSeparatedByString:@"\">"];
                 key = [arr.firstObject componentsSeparatedByString:@"<string name=\""].lastObject;
                 value = [arr.lastObject componentsSeparatedByString:@"</string>"].firstObject;
+                key = [key stringByReplacingOccurrencesOfString:@"\"" withString:@""];
+            }
+            if (isFlutter) {
+                arr = [current componentsSeparatedByString:@":"];
+                key = arr.firstObject;
+                value = arr.lastObject;
             }
             if (key != nil && value != nil) {
                 [oriSourceDataKo setValue:value forKey:key];
@@ -147,27 +173,45 @@
     NSMutableArray *resultEn = [NSMutableArray array];
     // 匹配到的韩语
     NSMutableArray *resultKo = [NSMutableArray array];
-    // 未翻译的中文
+    // 未翻译的
     NSMutableArray *blankZh = [NSMutableArray array];
+    NSMutableArray *blankEn = [NSMutableArray array];
+    NSMutableArray *blankKo = [NSMutableArray array];
     
     ///==========匹配源文件================
-    
-//    for (NSString *key in keyArr) {
-//        NSString *value = [oriSourceDataEn objectForKey:key];
-//        if (value.length == 0) {
-//            value = [valueArr objectAtIndex:[keyArr indexOfObject:key]];
-//        }
-//        [resultEn addObject:[NSString stringWithFormat:formatStr, key, value]];
-//        value = [oriSourceDataKo objectForKey:key];
-//        if (value.length == 0) {
-//            value = [valueArr objectAtIndex:[keyArr indexOfObject:key]];
-//        }
-//        [resultKo addObject:[NSString stringWithFormat:formatStr, key, value]];
-//    }
-//
-//    NSLog(@"\n 匹配到的英文 = \n%@", resultEn);
-//    NSLog(@"\n 匹配到的韩语 = \n%@", resultKo);
-    
+    if (!inBank) {
+        for (NSString *key in keyArr) {
+            NSString *value = [oriSourceDataEn objectForKey:key];
+            if (value.length == 0) {
+                value = [valueArr objectAtIndex:[keyArr indexOfObject:key]];
+            } else {
+                [oriSourceDataEn removeObjectForKey:key];
+            }
+            [resultEn addObject:[NSString stringWithFormat:formatStr, key, value]];
+            value = [oriSourceDataKo objectForKey:key];
+            if (value.length == 0) {
+                value = [valueArr objectAtIndex:[keyArr indexOfObject:key]];
+            } else {
+                [oriSourceDataKo removeObjectForKey:key];
+            }
+            [resultKo addObject:[NSString stringWithFormat:formatStr, key, value]];
+        }
+        
+        for (NSString *key in oriSourceDataEn.allKeys) {
+            NSString *value = [oriSourceDataEn objectForKey:key];
+            [blankEn addObject:[NSString stringWithFormat:formatStr, key, value]];
+            
+            [blankZh addObject:[NSString stringWithFormat:formatStr, key, key]];
+        }
+        for (NSString *key in oriSourceDataKo.allKeys) {
+            NSString *value = [oriSourceDataKo objectForKey:key];
+            [blankKo addObject:[NSString stringWithFormat:formatStr, key, value]];
+        }
+        
+        NSLog(@"\n 匹配到的英文 = \n%@", resultEn);
+        NSLog(@"\n 匹配到的韩语 = \n%@", resultKo);
+        return;
+    }
     ///==========匹配翻译库================
     
     for (NSString *item in dataArray) {
@@ -175,31 +219,25 @@
         NSArray<NSString *> *array = [item componentsSeparatedByString:@"\t"];
         NSString *current = array.firstObject;
         
-        if (isAndroid) {
-            if (current.length == 0 ||
-                ![current containsString:@"<string name="] ||
-                [current containsString:@"<!--"]) {
-                continue;
-            }
-        } else {
-            if (current.length == 0 ||
-                ![current containsString:@"<key>"]) {
-                continue;
-            }
+        if (current.length == 0) {
+            continue;
         }
         
-        // <key>第1次</key><string>第1次</string>
-        NSString *formatStr = @"<key>%@</key><string>%@</string>";
         NSArray *arr = [current componentsSeparatedByString:@"</key><string>"];
         NSString *key = [arr.firstObject componentsSeparatedByString:@"<key>"].lastObject;
         NSString *value = [arr.lastObject componentsSeparatedByString:@"</string>"].firstObject;
         
         if (isAndroid) {
-            // <string name="shouye">首页</string>
-            formatStr = @"<string name=\"%@\">%@</string>";
             arr = [current componentsSeparatedByString:@"\">"];
             key = [arr.firstObject componentsSeparatedByString:@"<string name=\""].lastObject;
             value = [arr.lastObject componentsSeparatedByString:@"</string>"].firstObject;
+            key = [key stringByReplacingOccurrencesOfString:@"\"" withString:@""];
+        }
+        
+        if (isFlutter) {
+            arr = [current componentsSeparatedByString:@":"];
+            key = arr.firstObject;
+            value = arr.lastObject;
         }
         
         BOOL have = NO;
