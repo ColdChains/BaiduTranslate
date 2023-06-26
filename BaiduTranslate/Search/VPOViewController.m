@@ -19,145 +19,127 @@
     self.title = @"VPO";
 }
 
-- (void)transFormFile {
-    // 读取资源文件(中-英-韩)
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"vpo-bank-new" ofType:@"xls"];
-    NSData *fileData = [NSFileManager.defaultManager contentsAtPath:path];
-    // 使用UTF16才能显示汉字
-    NSString *dataStr = [[NSString alloc] initWithData:fileData encoding:NSUTF16StringEncoding];
-    //转数组
-    NSArray<NSString *> *fileArr = [dataStr componentsSeparatedByString:@"\r\n"];
-    
-    NSMutableArray<NSString *> *resultArr = [NSMutableArray arrayWithCapacity:0];
-    
-    NSString *item = fileArr.firstObject;
-    int i = 0;
-    while (item != nil) {
-        NSArray *arr = [item componentsSeparatedByString:@"\t"];
-        NSString *key = arr.firstObject;
-        NSString *value = arr.count > 1 ? arr[1] : @"";
-        if (fileArr[i + 1]) {
-            
-        }
-    }
-    
-    
-}
-
 - (IBAction)iOSAction:(id)sender {
-    [self runIOS];
+    [self startSearchInBank:NO];
 }
 
 - (IBAction)androidAction:(id)sender {
-    [self runAndroid];
+    [self startSearchInBank:YES];
 }
 
-- (void)runAndroid {
-    // 读取需要翻译的文件(中文)
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"vpo-android" ofType:@"xls"];
-    NSArray<NSString *> *dataArray = [self readFileFirstColumnFromPath:path];
+- (void)startSearchInBank:(BOOL)isAndroid {
+    // 读取源文件
+    NSString *path = [[NSBundle mainBundle] pathForResource:isAndroid ? @"vpo-android" : @"vpo-ios" ofType:@"xls"];
+    NSArray *dataArray = [self readFileFromPath:path];
+    NSMutableArray *keyArr = [NSMutableArray array];
+    NSMutableArray *valueArr = [NSMutableArray array];
+    NSMutableDictionary *oriSourceDataEn = [NSMutableDictionary dictionary];
+    NSMutableDictionary *oriSourceDataKo = [NSMutableDictionary dictionary];
+    // <key>第1次</key><string>第1次</string>
+    NSString *formatStr = @"<key>%@</key><string>%@</string>";
+    if (isAndroid) {
+        // <string name="shouye">首页</string>
+        formatStr = @"<string name=\"%@\">%@</string>";
+    }
+    
+    ///===========解析源文件===============
+    
+    for (NSString *item in dataArray) {
+        NSArray<NSString *> *arr = [item componentsSeparatedByString:@"\t"];
+        
+        if (arr.count > 0 && arr[0].length > 0) {
+            NSString *current = arr[0];
+            NSArray *arr = [current componentsSeparatedByString:@"</key><string>"];
+            NSString *key = [arr.firstObject componentsSeparatedByString:@"<key>"].lastObject;
+            NSString *value = [arr.lastObject componentsSeparatedByString:@"</string>"].firstObject;
+            if (isAndroid) {
+                arr = [current componentsSeparatedByString:@"\">"];
+                key = [arr.firstObject componentsSeparatedByString:@"<string name=\""].lastObject;
+                value = [arr.lastObject componentsSeparatedByString:@"</string>"].firstObject;
+            }
+            if (key != nil && value != nil) {
+                [keyArr addObject:key];
+                [valueArr addObject:value];
+            }
+        }
+        
+        if (arr.count > 1 && arr[1].length > 0) {
+            NSString *current = arr[1];
+            NSArray *arr = [current componentsSeparatedByString:@"</key><string>"];
+            NSString *key = [arr.firstObject componentsSeparatedByString:@"<key>"].lastObject;
+            NSString *value = [arr.lastObject componentsSeparatedByString:@"</string>"].firstObject;
+            if (isAndroid) {
+                arr = [current componentsSeparatedByString:@"\">"];
+                key = [arr.firstObject componentsSeparatedByString:@"<string name=\""].lastObject;
+                value = [arr.lastObject componentsSeparatedByString:@"</string>"].firstObject;
+            }
+            if (key != nil && value != nil) {
+                [oriSourceDataEn setValue:value forKey:key];
+            }
+        }
+        
+        if (arr.count > 2 && arr[2].length > 0) {
+            NSString *current = arr[2];
+            NSArray *arr = [current componentsSeparatedByString:@"</key><string>"];
+            NSString *key = [arr.firstObject componentsSeparatedByString:@"<key>"].lastObject;
+            NSString *value = [arr.lastObject componentsSeparatedByString:@"</string>"].firstObject;
+            if (isAndroid) {
+                arr = [current componentsSeparatedByString:@"\">"];
+                key = [arr.firstObject componentsSeparatedByString:@"<string name=\""].lastObject;
+                value = [arr.lastObject componentsSeparatedByString:@"</string>"].firstObject;
+            }
+            if (key != nil && value != nil) {
+                [oriSourceDataKo setValue:value forKey:key];
+            }
+        }
+    }
+    
+    ///==========读取翻译库================
     
     // 读取资源文件(中-英-韩)
     NSString *bankPath = [[NSBundle mainBundle] pathForResource:@"vpo-bank" ofType:@"xls"];
-    NSArray<NSString *> *sourceDataArray = [self readFileFirstColumnFromPath:bankPath];
-    
-    // 读取更新后的文件(中-韩)
-    NSString *bankPathNew = [[NSBundle mainBundle] pathForResource:@"vpo-bank-new" ofType:@"xls"];
-    NSArray *fileArr = [self readFileFromPath:bankPathNew];
+    NSArray *fileArr = [self readFileFromPath:bankPath];
     NSMutableDictionary *enSourceData = [NSMutableDictionary dictionary];
     NSMutableDictionary *koSourceData = [NSMutableDictionary dictionary];
-    for (NSString *item in fileArr) {
-        NSArray<NSString *> *arr = [item componentsSeparatedByString:@"\t"];
-        NSString *key = @"";
-        if (arr.count > 1 && arr[1].length > 0) {
-            key = arr[1];
-            NSString *value = arr.count > 2 ? arr[2] : @"";
-            [enSourceData setValue:value forKey:key];
-            value = arr.count > 3 ? arr[3] : @"";
-            [koSourceData setValue:value forKey:key];
-        }
-    }
-    
-    // 匹配到的英文
-    NSMutableArray *resultEn = [NSMutableArray array];
-    // 匹配到的韩语
-    NSMutableArray *resultKo = [NSMutableArray array];
-    // 未翻译的中文
-    NSMutableArray *blankZh = [NSMutableArray array];
-    
-    for (NSString *current in dataArray) {
-        
-        if (current.length == 0 ||
-            ![current containsString:@"<string name="] ||
-            [current containsString:@"<!--"]) {
-            continue;
-        }
-        
-        // <string name="shouye">首页</string>
-        NSString *formatStr = @"<string name=\"%@\">%@</string>";
-        
-        NSArray *arr = [current componentsSeparatedByString:@"\">"];
-        NSString *key = [arr.firstObject componentsSeparatedByString:@"<string name=\""].lastObject;
-        NSString *value = [arr.lastObject componentsSeparatedByString:@"</string>"].firstObject;
-        
-        BOOL have = NO;
-        
-        // 匹配新的
-        if (!have) {
-            if ([enSourceData objectForKey:value] != nil && [koSourceData objectForKey:value] != nil) {
-                [resultEn addObject:[NSString stringWithFormat:formatStr, key, [enSourceData objectForKey:value]]];
-                [resultKo addObject:[NSString stringWithFormat:formatStr, key, [koSourceData objectForKey:value]]];
-                have = YES;
+    int i = 0;
+    while (i < fileArr.count) {
+        NSArray<NSString *> *arr = [fileArr[i] componentsSeparatedByString:@"\t"];
+        if (arr.count > 1 && arr[0].length > 0 && arr[1].length > 0 && [arr[0] isEqualToString:@"CHN"]) {
+            NSString *key = arr[1];
+            
+            if (i + 1 < fileArr.count) {
+                NSArray<NSString *> *arr = [fileArr[i + 1] componentsSeparatedByString:@"\t"];
+                if (arr.count > 1 && arr[0].length > 0 && arr[1].length > 0 && [arr[0] isEqualToString:@"ENG"]) {
+                    [enSourceData setValue:arr[1] forKey:key];
+                }
+                if (arr.count > 1 && arr[0].length > 0 && arr[1].length > 0 && [arr[0] isEqualToString:@"KR"]) {
+                    [koSourceData setValue:arr[1] forKey:key];
+                }
             }
-        }
-        
-        // 匹配旧的
-        if (!have) {
-            for (int i = 0; i < sourceDataArray.count; i++) {
-                if ([value isEqualToString:sourceDataArray[i]]) {
-                    [resultEn addObject:[NSString stringWithFormat:formatStr, key, sourceDataArray[i + 1]]];
-                    [resultKo addObject:[NSString stringWithFormat:formatStr, key, sourceDataArray[i + 2]]];
-                    have = YES;
-                    break;
+            
+            if (i + 2 < fileArr.count) {
+                NSArray<NSString *> *arr = [fileArr[i + 2] componentsSeparatedByString:@"\t"];
+                if (arr.count > 1 && arr[0].length > 0 && arr[1].length > 0 && [arr[0] isEqualToString:@"KR"]) {
+                    [koSourceData setValue:arr[1] forKey:key];
                 }
             }
         }
-        
-        if (!have) {
-            [blankZh addObject:value];
-        }
+        i++;
     }
     
-    NSLog(@"\n 匹配到的英文 = \n%@", resultEn);
-    NSLog(@"\n 匹配到的韩语 = \n%@", resultKo);
-    NSLog(@"\n 未匹配的中文 = \n%@", blankZh);
-    NSLog(@"Android匹配完成");
-    
-}
-
-- (void)runIOS {
-    // 读取需要翻译的文件
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"vpo-ios" ofType:@"xls"];
-    NSArray<NSString *> *dataArray = [self readFileFirstColumnFromPath:path];
-    
-    // 读取资源文件
-    NSString *bankPath = [[NSBundle mainBundle] pathForResource:@"vpo-bank" ofType:@"xls"];
-    NSArray<NSString *> *sourceDataArray = [self readFileFirstColumnFromPath:bankPath];
-    
-    // 读取更新后的文件(中-韩)
+    // 读取更新后的文件(中-英-韩)
     NSString *bankPathNew = [[NSBundle mainBundle] pathForResource:@"vpo-bank-new" ofType:@"xls"];
-    NSArray *fileArr = [self readFileFromPath:bankPathNew];
-    NSMutableDictionary *enSourceData = [NSMutableDictionary dictionary];
-    NSMutableDictionary *koSourceData = [NSMutableDictionary dictionary];
-    for (NSString *item in fileArr) {
+    NSArray *fileArrNew = [self readFileFromPath:bankPathNew];
+    NSMutableDictionary *enSourceDataNew = [NSMutableDictionary dictionary];
+    NSMutableDictionary *koSourceDataNew = [NSMutableDictionary dictionary];
+    for (NSString *item in fileArrNew) {
         NSArray<NSString *> *arr = [item componentsSeparatedByString:@"\t"];
-        NSString *key = @"";
         if (arr.count > 1 && arr[1].length > 0) {
-            key = arr[1];
+            NSString *key = arr[1];
             NSString *value = arr.count > 2 ? arr[2] : @"";
-            [enSourceData setValue:value forKey:key];
+            [enSourceDataNew setValue:value forKey:key];
             value = arr.count > 3 ? arr[3] : @"";
-            [koSourceData setValue:value forKey:key];
+            [koSourceDataNew setValue:value forKey:key];
         }
     }
     
@@ -168,53 +150,93 @@
     // 未翻译的中文
     NSMutableArray *blankZh = [NSMutableArray array];
     
-    for (NSString *current in dataArray) {
+    ///==========匹配源文件================
+    
+//    for (NSString *key in keyArr) {
+//        NSString *value = [oriSourceDataEn objectForKey:key];
+//        if (value.length == 0) {
+//            value = [valueArr objectAtIndex:[keyArr indexOfObject:key]];
+//        }
+//        [resultEn addObject:[NSString stringWithFormat:formatStr, key, value]];
+//        value = [oriSourceDataKo objectForKey:key];
+//        if (value.length == 0) {
+//            value = [valueArr objectAtIndex:[keyArr indexOfObject:key]];
+//        }
+//        [resultKo addObject:[NSString stringWithFormat:formatStr, key, value]];
+//    }
+//
+//    NSLog(@"\n 匹配到的英文 = \n%@", resultEn);
+//    NSLog(@"\n 匹配到的韩语 = \n%@", resultKo);
+    
+    ///==========匹配翻译库================
+    
+    for (NSString *item in dataArray) {
         
-        if (current.length == 0 || ![current containsString:@"<key>"]) {
-            continue;
+        NSArray<NSString *> *array = [item componentsSeparatedByString:@"\t"];
+        NSString *current = array.firstObject;
+        
+        if (isAndroid) {
+            if (current.length == 0 ||
+                ![current containsString:@"<string name="] ||
+                [current containsString:@"<!--"]) {
+                continue;
+            }
+        } else {
+            if (current.length == 0 ||
+                ![current containsString:@"<key>"]) {
+                continue;
+            }
         }
         
         // <key>第1次</key><string>第1次</string>
         NSString *formatStr = @"<key>%@</key><string>%@</string>";
-        
         NSArray *arr = [current componentsSeparatedByString:@"</key><string>"];
         NSString *key = [arr.firstObject componentsSeparatedByString:@"<key>"].lastObject;
         NSString *value = [arr.lastObject componentsSeparatedByString:@"</string>"].firstObject;
+        
+        if (isAndroid) {
+            // <string name="shouye">首页</string>
+            formatStr = @"<string name=\"%@\">%@</string>";
+            arr = [current componentsSeparatedByString:@"\">"];
+            key = [arr.firstObject componentsSeparatedByString:@"<string name=\""].lastObject;
+            value = [arr.lastObject componentsSeparatedByString:@"</string>"].firstObject;
+        }
         
         BOOL have = NO;
         
         // 匹配新的
         if (!have) {
-            if ([enSourceData objectForKey:value] != nil && [koSourceData objectForKey:value] != nil) {
-                [resultEn addObject:[NSString stringWithFormat:formatStr, key, [enSourceData objectForKey:value]]];
-                [resultKo addObject:[NSString stringWithFormat:formatStr, key, [koSourceData objectForKey:value]]];
+            if ([enSourceDataNew objectForKey:value] != nil && [koSourceDataNew objectForKey:value] != nil) {
+                [resultEn addObject:[NSString stringWithFormat:formatStr, key, [enSourceDataNew objectForKey:value]]];
+                [resultKo addObject:[NSString stringWithFormat:formatStr, key, [koSourceDataNew objectForKey:value]]];
                 have = YES;
             }
         }
         
         // 匹配旧的
-        if (!have) {
-            for (int i = 0; i < sourceDataArray.count; i++) {
-                if ([value isEqualToString:sourceDataArray[i]]) {
-                    [resultEn addObject:[NSString stringWithFormat:formatStr, key, sourceDataArray[i + 1]]];
-                    [resultKo addObject:[NSString stringWithFormat:formatStr, key, sourceDataArray[i + 2]]];
-                    have = YES;
-                    break;
-                }
-            }
-        }
+//        if (!have) {
+//            if ([enSourceData objectForKey:value] != nil && [koSourceData objectForKey:value] != nil) {
+//                [resultEn addObject:[NSString stringWithFormat:formatStr, key, [enSourceData objectForKey:value]]];
+//                [resultKo addObject:[NSString stringWithFormat:formatStr, key, [koSourceData objectForKey:value]]];
+//                have = YES;
+//            }
+//        }
         
         if (!have) {
             [blankZh addObject:value];
+            // 匹配不到的用源数据
+            [resultEn addObject:[NSString stringWithFormat:formatStr, key, [oriSourceDataEn objectForKey:key]]];
+            [resultKo addObject:[NSString stringWithFormat:formatStr, key, [oriSourceDataKo objectForKey:key]]];
         }
     }
     
     NSLog(@"\n 匹配到的英文 = \n%@", resultEn);
     NSLog(@"\n 匹配到的韩语 = \n%@", resultKo);
     NSLog(@"\n 未匹配的中文 = \n%@", blankZh);
-    NSLog(@"iOS匹配完成");
+    NSLog(isAndroid ? @"Android匹配完成" : @"iOS匹配完成");
     
 }
+
 
 // 编码转换
 - (NSString *)transform:(id)obj {
