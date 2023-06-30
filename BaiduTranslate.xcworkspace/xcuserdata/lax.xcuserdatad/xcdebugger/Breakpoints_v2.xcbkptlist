@@ -154,40 +154,40 @@
             filePath = "BaiduTranslate/Search/VPOViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "281"
-            endingLineNumber = "281"
-            landmarkName = "-startSearchInBank:isAndroid:isFlutter:"
+            startingLineNumber = "292"
+            endingLineNumber = "292"
+            landmarkName = "-startSearchInBank:oldBank:isAndroid:isFlutter:"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "FADA2759-8F15-4767-B815-87C7B1044C21 - 5f8cb50ff38ad5bf"
+                  uuid = "FADA2759-8F15-4767-B815-87C7B1044C21 - a794c7a5122e490c"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "-[VPOViewController startSearchInBank:isAndroid:isFlutter:]"
+                  symbolName = "-[VPOViewController startSearchInBank:oldBank:isAndroid:isFlutter:]"
                   moduleName = "BaiduTranslate"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/lax/Desktop/github/OC/BaiduTranslate/BaiduTranslate/Search/VPOViewController.m"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "282"
-                  endingLineNumber = "282"
-                  offsetFromSymbolStart = "11948">
+                  startingLineNumber = "292"
+                  endingLineNumber = "292"
+                  offsetFromSymbolStart = "12680">
                </Location>
                <Location
-                  uuid = "FADA2759-8F15-4767-B815-87C7B1044C21 - 5f8cb50ff38ad59c"
+                  uuid = "FADA2759-8F15-4767-B815-87C7B1044C21 - a794c7a5122e490c"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "-[VPOViewController startSearchInBank:isAndroid:isFlutter:]"
+                  symbolName = "-[VPOViewController startSearchInBank:oldBank:isAndroid:isFlutter:]"
                   moduleName = "BaiduTranslate"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/lax/Desktop/github/OC/BaiduTranslate/BaiduTranslate/Search/VPOViewController.m"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "281"
-                  endingLineNumber = "281"
-                  offsetFromSymbolStart = "8940">
+                  startingLineNumber = "292"
+                  endingLineNumber = "292"
+                  offsetFromSymbolStart = "12804">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -202,40 +202,40 @@
             filePath = "BaiduTranslate/Search/VPOViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "242"
-            endingLineNumber = "242"
-            landmarkName = "-startSearchInBank:isAndroid:isFlutter:"
+            startingLineNumber = "252"
+            endingLineNumber = "252"
+            landmarkName = "-startSearchInBank:oldBank:isAndroid:isFlutter:"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "2B277BED-30FD-43A4-A681-87A23E3B3DA4 - 5f8cb50ff38ad0f8"
+                  uuid = "2B277BED-30FD-43A4-A681-87A23E3B3DA4 - a794c7a5122e4234"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "-[VPOViewController startSearchInBank:isAndroid:isFlutter:]"
+                  symbolName = "-[VPOViewController startSearchInBank:oldBank:isAndroid:isFlutter:]"
                   moduleName = "BaiduTranslate"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/lax/Desktop/github/OC/BaiduTranslate/BaiduTranslate/Search/VPOViewController.m"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "245"
-                  endingLineNumber = "245"
-                  offsetFromSymbolStart = "10804">
+                  startingLineNumber = "252"
+                  endingLineNumber = "252"
+                  offsetFromSymbolStart = "11028">
                </Location>
                <Location
-                  uuid = "2B277BED-30FD-43A4-A681-87A23E3B3DA4 - 5f8cb50ff38ad067"
+                  uuid = "2B277BED-30FD-43A4-A681-87A23E3B3DA4 - a794c7a5122e4234"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "-[VPOViewController startSearchInBank:isAndroid:isFlutter:]"
+                  symbolName = "-[VPOViewController startSearchInBank:oldBank:isAndroid:isFlutter:]"
                   moduleName = "BaiduTranslate"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/lax/Desktop/github/OC/BaiduTranslate/BaiduTranslate/Search/VPOViewController.m"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "242"
-                  endingLineNumber = "242"
-                  offsetFromSymbolStart = "7848">
+                  startingLineNumber = "252"
+                  endingLineNumber = "252"
+                  offsetFromSymbolStart = "11024">
                </Location>
             </Locations>
          </BreakpointContent>

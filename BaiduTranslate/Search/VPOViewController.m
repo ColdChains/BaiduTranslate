@@ -21,24 +21,25 @@
 
 - (IBAction)iOSAction:(id)sender {
 //    [self startSearchInBank:NO isAndroid:NO isFlutter:NO];
-    [self startSearchInBank:YES isAndroid:NO isFlutter:NO];
+    [self startSearchInBank:YES oldBank:YES isAndroid:NO isFlutter:NO];
 }
 
 - (IBAction)androidAction:(id)sender {
 //    [self startSearchInBank:NO isAndroid:YES isFlutter:NO];
-    [self startSearchInBank:YES isAndroid:YES isFlutter:NO];
+    [self startSearchInBank:YES oldBank:YES isAndroid:YES isFlutter:NO];
 }
 
 - (IBAction)flutterAction:(id)sender {
-    [self startSearchInBank:YES isAndroid:NO isFlutter:YES];
+    [self startSearchInBank:YES oldBank:YES isAndroid:NO isFlutter:YES];
 //    [self startSearchInBank:NO isAndroid:NO isFlutter:YES];
 }
 
 /// - Parameters:
-///   - inBank: 在bank文件里匹配
+///   - inBank: 在bank-new文件里匹配
+///   - oldBank: 在bank文件里匹配
 ///   - isAndroid:
 ///   - isFlutter:
-- (void)startSearchInBank:(BOOL)inBank isAndroid:(BOOL)isAndroid isFlutter:(BOOL)isFlutter {
+- (void)startSearchInBank:(BOOL)inBank oldBank:(BOOL)oldBank isAndroid:(BOOL)isAndroid isFlutter:(BOOL)isFlutter {
     NSMutableArray *resultZh = [NSMutableArray array];
     // 匹配到的英文
     NSMutableArray *resultEn = [NSMutableArray array];
@@ -75,6 +76,7 @@
         
         if (arr.count > 0 && arr[0].length > 0) {
             NSString *current = arr[0];
+            // iOS
             NSArray *arr = [current componentsSeparatedByString:@"</key><string>"];
             NSString *key = [arr.firstObject componentsSeparatedByString:@"<key>"].lastObject;
             NSString *value = [arr.lastObject componentsSeparatedByString:@"</string>"].firstObject;
@@ -85,15 +87,17 @@
                 key = [key stringByReplacingOccurrencesOfString:@"\"" withString:@""];
             }
             if (isFlutter) {
-                arr = [current componentsSeparatedByString:@":"];
-                key = [arr.firstObject trim];
-                value = [arr.lastObject trim];
-                value = [value stringByReplacingOccurrencesOfString:@"\"" withString:@""];
-                value = [value stringByReplacingOccurrencesOfString:@"\"" withString:@""];
+                current = [current stringByReplacingOccurrencesOfString:@"\"\"\"" withString:@"\"\""];
+                current = [current stringByReplacingOccurrencesOfString:@"\"\"" withString:@"\""];
+                current = [current stringByReplacingOccurrencesOfString:@",\"" withString:@""];
+                arr = [current componentsSeparatedByString:@"\": \""];
+                key = [arr.firstObject componentsSeparatedByString:@"\""].lastObject;
+                value = [arr.lastObject componentsSeparatedByString:@"\""].firstObject;
             }
             if (key != nil && value != nil) {
                 [keyArr addObject:key];
                 [valueArr addObject:value];
+                [oriSourceDataZh setValue:value forKey:key];
                 // 去重
 //                if ([oriSourceDataZh objectForKey:key] == nil) {
 //                    [resultZh addObject: [NSString stringWithFormat:formatStr, key, value]];
@@ -104,6 +108,7 @@
         
         if (arr.count > 1 && arr[1].length > 0) {
             NSString *current = arr[1];
+            // iOS
             NSArray *arr = [current componentsSeparatedByString:@"</key><string>"];
             NSString *key = [arr.firstObject componentsSeparatedByString:@"<key>"].lastObject;
             NSString *value = [arr.lastObject componentsSeparatedByString:@"</string>"].firstObject;
@@ -114,11 +119,12 @@
                 key = [key stringByReplacingOccurrencesOfString:@"\"" withString:@""];
             }
             if (isFlutter) {
-                arr = [current componentsSeparatedByString:@":"];
-                key = [arr.firstObject trim];
-                value = [arr.lastObject trim];
-                value = [value stringByReplacingOccurrencesOfString:@"\"" withString:@""];
-                value = [value stringByReplacingOccurrencesOfString:@"\"" withString:@""];
+                current = [current stringByReplacingOccurrencesOfString:@"\"\"\"" withString:@"\"\""];
+                current = [current stringByReplacingOccurrencesOfString:@"\"\"" withString:@"\""];
+                current = [current stringByReplacingOccurrencesOfString:@",\"" withString:@""];
+                arr = [current componentsSeparatedByString:@"\": \""];
+                key = [arr.firstObject componentsSeparatedByString:@"\""].lastObject;
+                value = [arr.lastObject componentsSeparatedByString:@"\""].firstObject;
             }
             if (key != nil && value != nil) {
                 [oriSourceDataEn setValue:value forKey:key];
@@ -132,6 +138,7 @@
         
         if (arr.count > 2 && arr[2].length > 0) {
             NSString *current = arr[2];
+            // iOS
             NSArray *arr = [current componentsSeparatedByString:@"</key><string>"];
             NSString *key = [arr.firstObject componentsSeparatedByString:@"<key>"].lastObject;
             NSString *value = [arr.lastObject componentsSeparatedByString:@"</string>"].firstObject;
@@ -142,11 +149,12 @@
                 key = [key stringByReplacingOccurrencesOfString:@"\"" withString:@""];
             }
             if (isFlutter) {
-                arr = [current componentsSeparatedByString:@":"];
-                key = [arr.firstObject trim];
-                value = [arr.lastObject trim];
-                value = [value stringByReplacingOccurrencesOfString:@"\"" withString:@""];
-                value = [value stringByReplacingOccurrencesOfString:@"\"" withString:@""];
+                current = [current stringByReplacingOccurrencesOfString:@"\"\"\"" withString:@"\"\""];
+                current = [current stringByReplacingOccurrencesOfString:@"\"\"" withString:@"\""];
+                current = [current stringByReplacingOccurrencesOfString:@",\"" withString:@""];
+                arr = [current componentsSeparatedByString:@"\": \""];
+                key = [arr.firstObject componentsSeparatedByString:@"\""].lastObject;
+                value = [arr.lastObject componentsSeparatedByString:@"\""].firstObject;
             }
             if (key != nil && value != nil) {
                 [oriSourceDataKo setValue:value forKey:key];
@@ -162,35 +170,37 @@
     ///==========读取翻译库================
     
     // 读取旧翻译库
-//    NSString *bankPath = [[NSBundle mainBundle] pathForResource:@"vpo-bank" ofType:@"xls"];
-//    NSArray *fileArr = [self readFileFromPath:bankPath];
-//    NSMutableDictionary *enSourceData = [NSMutableDictionary dictionary];
-//    NSMutableDictionary *koSourceData = [NSMutableDictionary dictionary];
-//    int i = 0;
-//    while (i < fileArr.count) {
-//        NSArray<NSString *> *arr = [fileArr[i] componentsSeparatedByString:@"\t"];
-//        if (arr.count > 1 && arr[0].length > 0 && arr[1].length > 0 && [arr[0] isEqualToString:@"CHN"]) {
-//            NSString *key = arr[1];
-//
-//            if (i + 1 < fileArr.count) {
-//                NSArray<NSString *> *arr = [fileArr[i + 1] componentsSeparatedByString:@"\t"];
-//                if (arr.count > 1 && arr[0].length > 0 && arr[1].length > 0 && [arr[0] isEqualToString:@"ENG"]) {
-//                    [enSourceData setValue:arr[1] forKey:key];
-//                }
-//                if (arr.count > 1 && arr[0].length > 0 && arr[1].length > 0 && [arr[0] isEqualToString:@"KR"]) {
-//                    [koSourceData setValue:arr[1] forKey:key];
-//                }
-//            }
-//
-//            if (i + 2 < fileArr.count) {
-//                NSArray<NSString *> *arr = [fileArr[i + 2] componentsSeparatedByString:@"\t"];
-//                if (arr.count > 1 && arr[0].length > 0 && arr[1].length > 0 && [arr[0] isEqualToString:@"KR"]) {
-//                    [koSourceData setValue:arr[1] forKey:key];
-//                }
-//            }
-//        }
-//        i++;
-//    }
+    NSMutableDictionary *enSourceData = [NSMutableDictionary dictionary];
+    NSMutableDictionary *koSourceData = [NSMutableDictionary dictionary];
+    if (oldBank) {
+        NSString *bankPath = [[NSBundle mainBundle] pathForResource:@"vpo-bank" ofType:@"xls"];
+        NSArray *fileArr = [self readFileFromPath:bankPath];
+        int i = 0;
+        while (i < fileArr.count) {
+            NSArray<NSString *> *arr = [fileArr[i] componentsSeparatedByString:@"\t"];
+            if (arr.count > 1 && arr[0].length > 0 && arr[1].length > 0 && [arr[0] isEqualToString:@"CHN"]) {
+                NSString *key = arr[1];
+
+                if (i + 1 < fileArr.count) {
+                    NSArray<NSString *> *arr = [fileArr[i + 1] componentsSeparatedByString:@"\t"];
+                    if (arr.count > 1 && arr[0].length > 0 && arr[1].length > 0 && [arr[0] isEqualToString:@"ENG"]) {
+                        [enSourceData setValue:arr[1] forKey:key];
+                    }
+                    if (arr.count > 1 && arr[0].length > 0 && arr[1].length > 0 && [arr[0] isEqualToString:@"KR"]) {
+                        [koSourceData setValue:arr[1] forKey:key];
+                    }
+                }
+
+                if (i + 2 < fileArr.count) {
+                    NSArray<NSString *> *arr = [fileArr[i + 2] componentsSeparatedByString:@"\t"];
+                    if (arr.count > 1 && arr[0].length > 0 && arr[1].length > 0 && [arr[0] isEqualToString:@"KR"]) {
+                        [koSourceData setValue:arr[1] forKey:key];
+                    }
+                }
+            }
+            i++;
+        }
+    }
     
     // 读取新翻译库
     NSString *bankPathNew = [[NSBundle mainBundle] pathForResource:@"vpo-bank-new" ofType:@"xls"];
@@ -262,13 +272,13 @@
         }
         
         // 匹配旧的翻译库
-//        if (!have) {
-//            if ([enSourceData objectForKey:value] != nil && [koSourceData objectForKey:value] != nil) {
-//                [resultEn addObject:[NSString stringWithFormat:formatStr, key, [enSourceData objectForKey:value]]];
-//                [resultKo addObject:[NSString stringWithFormat:formatStr, key, [koSourceData objectForKey:value]]];
-//                have = YES;
-//            }
-//        }
+        if (oldBank && !have) {
+            if ([enSourceData objectForKey:value] != nil && [koSourceData objectForKey:value] != nil) {
+                [resultEn addObject:[NSString stringWithFormat:formatStr, key, [enSourceData objectForKey:value]]];
+                [resultKo addObject:[NSString stringWithFormat:formatStr, key, [koSourceData objectForKey:value]]];
+                have = YES;
+            }
+        }
         
         if (!have) {
             [blankZh addObject:value];
@@ -276,6 +286,7 @@
             [resultEn addObject:[NSString stringWithFormat:formatStr, key, [oriSourceDataEn objectForKey:key]]];
             [resultKo addObject:[NSString stringWithFormat:formatStr, key, [oriSourceDataKo objectForKey:key]]];
         }
+        [resultZh addObject:[NSString stringWithFormat:formatStr, key, [oriSourceDataZh objectForKey:key]]];
     }
     
     NSLog(@"\n 匹配到的英文 = \n%@", resultEn);
