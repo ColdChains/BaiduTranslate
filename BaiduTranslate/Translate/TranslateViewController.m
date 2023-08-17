@@ -25,8 +25,9 @@
     // flutter文件格式翻译
     // 在此设置需要翻译的文字 在"翻译完成"处查看打印结果
     NSArray *arr = @[
-        @"为什么",
-        @"状态",
+        @"后台服务",
+        @"应用版本",
+        @"VPO二维码",
     ];
     [self translate:arr];
 }
@@ -82,6 +83,7 @@
             key = [key stringByReplacingOccurrencesOfString:@"(" withString:@""];
             key = [key stringByReplacingOccurrencesOfString:@")" withString:@""];
             key = [key stringByReplacingOccurrencesOfString:@"&" withString:@""];
+            key = [key stringByReplacingOccurrencesOfString:@"'" withString:@""];
             [keyArr addObject:key];
             
             [zhArr addObject:[NSString stringWithFormat:@"\"%@\" : \"%@\"", key, src]];
