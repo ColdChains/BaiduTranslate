@@ -43,6 +43,15 @@
                         <action selector="flutterAction:" destination="-1" eventType="touchUpInside" id="1zI-ZT-3so"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L7C-We-DJp">
+                    <rect key="frame" x="153" y="434" width="88" height="35"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" title="Start PC"/>
+                    <connections>
+                        <action selector="pcAction:" destination="-1" eventType="touchUpInside" id="MyU-rz-k2U"/>
+                    </connections>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>

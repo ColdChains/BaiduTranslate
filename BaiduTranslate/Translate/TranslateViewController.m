@@ -25,9 +25,11 @@
     // flutter文件格式翻译
     // 在此设置需要翻译的文字 在"翻译完成"处查看打印结果
     NSArray *arr = @[
-        @"后台服务",
-        @"应用版本",
-        @"VPO二维码",
+        @"上传反馈照片/视频",
+        @"上传照片/视频",
+        @"请上传反馈照片/视频",
+        @"请确认签阅",
+        @"委派责任人",
     ];
     [self translate:arr];
 }
@@ -76,6 +78,7 @@
             // key：小驼峰 英文：首字母大写
             NSString *key = [dst.capitalizedString stringByReplacingOccurrencesOfString:@" " withString:@""];
             key = [[key substringToIndex:1].lowercaseString stringByAppendingString: [key substringFromIndex:1]];
+            // 处理特殊字符
             key = [key stringByReplacingOccurrencesOfString:@"," withString:@""];
             key = [key stringByReplacingOccurrencesOfString:@"." withString:@""];
             key = [key stringByReplacingOccurrencesOfString:@"?" withString:@""];
@@ -84,6 +87,7 @@
             key = [key stringByReplacingOccurrencesOfString:@")" withString:@""];
             key = [key stringByReplacingOccurrencesOfString:@"&" withString:@""];
             key = [key stringByReplacingOccurrencesOfString:@"'" withString:@""];
+            key = [key stringByReplacingOccurrencesOfString:@"/" withString:@"Or"];
             [keyArr addObject:key];
             
             [zhArr addObject:[NSString stringWithFormat:@"\"%@\" : \"%@\"", key, src]];

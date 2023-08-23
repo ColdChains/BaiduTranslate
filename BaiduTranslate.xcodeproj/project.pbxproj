@@ -27,6 +27,7 @@
 		5765275329DBC69C00C1AB4C /* NetWork.m in Sources */ = {isa = PBXBuildFile; fileRef = 5765275129DBC69C00C1AB4C /* NetWork.m */; };
 		576DFD252A17050000082D3F /* android.xls in Resources */ = {isa = PBXBuildFile; fileRef = 576DFD242A17050000082D3F /* android.xls */; };
 		57A2CDEA2A47D3E000245167 /* vpo-bank-new.xls in Resources */ = {isa = PBXBuildFile; fileRef = 57A2CDE92A47D3E000245167 /* vpo-bank-new.xls */; };
+		57AEA6092A95D4E300EB4729 /* vpo-pc.xls in Resources */ = {isa = PBXBuildFile; fileRef = 57AEA6082A95D4E300EB4729 /* vpo-pc.xls */; };
 		57D37F192A4975420060EA21 /* vpo-flutter.xls in Resources */ = {isa = PBXBuildFile; fileRef = 57D37F182A4975420060EA21 /* vpo-flutter.xls */; };
 		EAE69FEC50E620993BBC06F7 /* Pods_BaiduTranslate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 322BFE8E4280B01AC4675192 /* Pods_BaiduTranslate.framework */; };
 /* End PBXBuildFile section */
@@ -61,6 +62,7 @@
 		5765275229DBC69C00C1AB4C /* NetWork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetWork.h; sourceTree = "<group>"; };
 		576DFD242A17050000082D3F /* android.xls */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = android.xls; sourceTree = "<group>"; };
 		57A2CDE92A47D3E000245167 /* vpo-bank-new.xls */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "vpo-bank-new.xls"; sourceTree = "<group>"; };
+		57AEA6082A95D4E300EB4729 /* vpo-pc.xls */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "vpo-pc.xls"; sourceTree = "<group>"; };
 		57D37F182A4975420060EA21 /* vpo-flutter.xls */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "vpo-flutter.xls"; sourceTree = "<group>"; };
 		7BC0073616713CEBD467CA66 /* Pods-BaiduTranslate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaiduTranslate.release.xcconfig"; path = "Target Support Files/Pods-BaiduTranslate/Pods-BaiduTranslate.release.xcconfig"; sourceTree = "<group>"; };
 		F3969E23F63AFC80D0537F14 /* Pods-BaiduTranslate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaiduTranslate.debug.xcconfig"; path = "Target Support Files/Pods-BaiduTranslate/Pods-BaiduTranslate.debug.xcconfig"; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 		5700CAE02A1609100058F75B /* Excel */ = {
 			isa = PBXGroup;
 			children = (
+				57AEA6082A95D4E300EB4729 /* vpo-pc.xls */,
 				57D37F182A4975420060EA21 /* vpo-flutter.xls */,
 				5734A2A52A42D7D000835AF9 /* vpo-android.xls */,
 				5734A2A62A42D7D000835AF9 /* vpo-ios.xls */,
@@ -252,6 +255,7 @@
 				576DFD252A17050000082D3F /* android.xls in Resources */,
 				5765274029DBC46600C1AB4C /* Main.storyboard in Resources */,
 				5734A29E2A42D1DF00835AF9 /* DPOViewController.xib in Resources */,
+				57AEA6092A95D4E300EB4729 /* vpo-pc.xls in Resources */,
 				5700CAE22A16092F0058F75B /* ios.xls in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

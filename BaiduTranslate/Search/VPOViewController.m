@@ -9,7 +9,9 @@
 #import "NSString+trim.h"
 
 @interface VPOViewController ()
-
+{
+    NSArray<NSString *> *resourceArray;
+}
 @end
 
 @implementation VPOViewController
@@ -17,6 +19,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"VPO";
+    resourceArray = @[@"vpo-ios", @"vpo-android", @"vpo-flutter", @"vpo-pc"];
 }
 
 - (IBAction)iOSAction:(id)sender {
@@ -29,6 +32,10 @@
 
 - (IBAction)flutterAction:(id)sender {
     [self startSearchInBank:YES oldBank:NO planform:2];
+}
+
+- (IBAction)pcAction:(id)sender {
+    [self startSearchInBank:YES oldBank:NO planform:3];
 }
 
 - (NSString *)getKeyFromIOSString:(NSString *)current {
@@ -81,7 +88,7 @@
 /// - Parameters:
 ///   - isInBank: true:在bank-new文件里匹配 false:在源文件里匹配
 ///   - oldBank: 在bank-new、bank-old文件里匹配
-///   - planform: 0 ios 1 android 2 flutter
+///   - planform: 0 ios 1 android 2 flutter 3 PC
 - (void)startSearchInBank:(BOOL)isInBank oldBank:(BOOL)oldBank planform:(NSInteger)planform {
     NSMutableArray *resultZh = [NSMutableArray array];
     // 匹配到的英文
@@ -94,7 +101,7 @@
     NSMutableArray *blankKo = [NSMutableArray array];
     
     // 读取源文件
-    NSString *path = [[NSBundle mainBundle] pathForResource:@[@"vpo-ios", @"vpo-android", @"vpo-flutter"][planform] ofType:@"xls"];
+    NSString *path = [[NSBundle mainBundle] pathForResource:resourceArray[planform] ofType:@"xls"];
     NSArray *dataArray = [self readFileFromPath:path];
     NSMutableArray *keyArr = [NSMutableArray array];
     NSMutableArray *valueArr = [NSMutableArray array];
@@ -108,7 +115,7 @@
     } else if (planform == 1) {
         // <string name="shouye">首页</string>
         formatStr = @"<string name=\"%@\">%@</string>";
-    } else if (planform == 2) {
+    } else {
         // fiveCheckList: "5S检查表"
         formatStr = @"\"%@\": \"%@\"";
     }
@@ -128,7 +135,7 @@
             } else if (planform == 1) {
                 key = [self getKeyFromAndroidString:current];
                 value = [self getValueFromAndroidString:current];
-            } else if (planform == 2) {
+            } else {
                 key = [self getKeyFromFlutterString:current];
                 value = [self getValueFromFlutterString:current];
             }
@@ -154,7 +161,7 @@
             } else if (planform == 1) {
                 key = [self getKeyFromAndroidString:current];
                 value = [self getValueFromAndroidString:current];
-            } else if (planform == 2) {
+            } else {
                 key = [self getKeyFromFlutterString:current];
                 value = [self getValueFromFlutterString:current];
             }
@@ -178,7 +185,7 @@
             } else if (planform == 1) {
                 key = [self getKeyFromAndroidString:current];
                 value = [self getValueFromAndroidString:current];
-            } else if (planform == 2) {
+            } else {
                 key = [self getKeyFromFlutterString:current];
                 value = [self getValueFromFlutterString:current];
             }
@@ -235,11 +242,11 @@
     NSArray *fileArrNew = [self readFileFromPath:bankPathNew];
     for (NSString *item in fileArrNew) {
         NSArray<NSString *> *arr = [item componentsSeparatedByString:@"\t"];
-        if (arr.count > 1 && arr[1].length > 0) {
-            NSString *key = arr[1];
-            NSString *value = arr.count > 2 ? arr[2] : @"";
+        if (arr.count > 0 && arr[0].length > 0) {
+            NSString *key = arr[0];
+            NSString *value = arr.count > 1 ? arr[1] : @"";
             [enSourceData setValue:value forKey:key];
-            value = arr.count > 3 ? arr[3] : @"";
+            value = arr.count > 2 ? arr[2] : @"";
             [koSourceData setValue:value forKey:key];
         }
         
@@ -297,7 +304,7 @@
     }
     
     
-    ///==========2.开始匹配翻译库================
+    ///==========2.匹配翻译库================
     for (int i = 0; i < keyArr.count; i++) {
         NSString *key = keyArr[i];
         NSString *value = valueArr[i];
@@ -315,17 +322,21 @@
         
         // 匹配不到的用源数据
         if (!haveEn) {
-            [resultEn addObject:[NSString stringWithFormat:formatStr, key, [oriSourceDataEn objectForKey:key]]];
+            [resultEn addObject:[NSString stringWithFormat:formatStr, key, [oriSourceDataEn objectForKey:key] ?: value]];
+            [blankEn addObject:[NSString stringWithFormat:formatStr, key, value]];
         }
         if (!haveKo) {
-            [resultKo addObject:[NSString stringWithFormat:formatStr, key, [oriSourceDataKo objectForKey:key]]];
+            [resultKo addObject:[NSString stringWithFormat:formatStr, key, [oriSourceDataKo objectForKey:key] ?: value]];
+            [blankKo addObject:[NSString stringWithFormat:formatStr, key, value]];
         }
         [resultZh addObject:[NSString stringWithFormat:formatStr, key, [oriSourceDataZh objectForKey:key]]];
     }
     
     NSLog(@"\n 匹配到的英文 = \n%@", resultEn);
     NSLog(@"\n 匹配到的韩语 = \n%@", resultKo);
-    NSLog(@"%@", @[@"iOS匹配完成", @"Android匹配完成", @"Flutter匹配完成"][planform]);
+    NSLog(@"\n 未匹配到的英文 = \n%@", blankEn);
+    NSLog(@"\n 未匹配到的韩语 = \n%@", blankKo);
+    NSLog(@"%@匹配完成", resourceArray[planform]);
     
 }
 
