@@ -70,18 +70,28 @@
     current = [current stringByReplacingOccurrencesOfString:@"\"\"\"" withString:@"\"\""];
     current = [current stringByReplacingOccurrencesOfString:@"\"\"" withString:@"\""];
     current = [current stringByReplacingOccurrencesOfString:@",\"" withString:@""];
-    NSArray *arr = [current componentsSeparatedByString:@"\": \""];
-    NSString *key = [arr.firstObject componentsSeparatedByString:@"\""].lastObject;
-    NSString *value = [arr.lastObject componentsSeparatedByString:@"\""].firstObject;
+    NSArray *arr = [current componentsSeparatedByString:@":"];
+    NSString *key = [arr.firstObject stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    while ([key hasPrefix:@"\""]) {
+        key = [key stringByReplacingOccurrencesOfString:@"\"" withString:@""];
+    }
+    while ([key hasSuffix:@"\""]) {
+        key = [key stringByReplacingOccurrencesOfString:@"\"" withString:@""];
+    }
     return key;
 }
 - (NSString *)getValueFromFlutterString:(NSString *)current {
     current = [current stringByReplacingOccurrencesOfString:@"\"\"\"" withString:@"\"\""];
     current = [current stringByReplacingOccurrencesOfString:@"\"\"" withString:@"\""];
     current = [current stringByReplacingOccurrencesOfString:@",\"" withString:@""];
-    NSArray *arr = [current componentsSeparatedByString:@"\": \""];
-    NSString *key = [arr.firstObject componentsSeparatedByString:@"\""].lastObject;
-    NSString *value = [arr.lastObject componentsSeparatedByString:@"\""].firstObject;
+    NSArray *arr = [current componentsSeparatedByString:@": "];
+    NSString *value = [arr.lastObject stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    while ([value hasPrefix:@"\""]) {
+        value = [value stringByReplacingOccurrencesOfString:@"\"" withString:@""];
+    }
+    while ([value hasSuffix:@"\""]) {
+        value = [value stringByReplacingOccurrencesOfString:@"\"" withString:@""];
+    }
     return value;
 }
 
@@ -144,10 +154,10 @@
                 [valueArr addObject:value];
                 [oriSourceDataZh setValue:value forKey:key];
                 // 去重
-//                if ([oriSourceDataZh objectForKey:key] == nil) {
-//                    [resultZh addObject: [NSString stringWithFormat:formatStr, key, value]];
-//                    [oriSourceDataZh setValue:@"" forKey:key];
-//                }
+                //                if ([oriSourceDataZh objectForKey:key] == nil) {
+                //                    [resultZh addObject: [NSString stringWithFormat:formatStr, key, value]];
+                //                    [oriSourceDataZh setValue:@"" forKey:key];
+                //                }
             }
         }
         
@@ -168,10 +178,10 @@
             if (key != nil && value != nil) {
                 [oriSourceDataEn setValue:value forKey:key];
                 // 去重
-//                if ([oriSourceDataZh objectForKey:key] == nil) {
-//                    [resultZh addObject: [NSString stringWithFormat:formatStr, key, value]];
-//                    [oriSourceDataZh setValue:@"" forKey:key];
-//                }
+                //                if ([oriSourceDataZh objectForKey:key] == nil) {
+                //                    [resultZh addObject: [NSString stringWithFormat:formatStr, key, value]];
+                //                    [oriSourceDataZh setValue:@"" forKey:key];
+                //                }
             }
         }
         
@@ -192,10 +202,10 @@
             if (key != nil && value != nil) {
                 [oriSourceDataKo setValue:value forKey:key];
                 // 去重
-//                if ([oriSourceDataZh objectForKey:key] == nil) {
-//                    [resultZh addObject: [NSString stringWithFormat:formatStr, key, value]];
-//                    [oriSourceDataZh setValue:@"" forKey:key];
-//                }
+                //                if ([oriSourceDataZh objectForKey:key] == nil) {
+                //                    [resultZh addObject: [NSString stringWithFormat:formatStr, key, value]];
+                //                    [oriSourceDataZh setValue:@"" forKey:key];
+                //                }
             }
         }
     }
@@ -214,7 +224,7 @@
             NSArray<NSString *> *arr = [fileArr[i] componentsSeparatedByString:@"\t"];
             if (arr.count > 1 && arr[0].length > 0 && arr[1].length > 0 && [arr[0] isEqualToString:@"CHN"]) {
                 NSString *key = arr[1];
-
+                
                 if (i + 1 < fileArr.count) {
                     NSArray<NSString *> *arr = [fileArr[i + 1] componentsSeparatedByString:@"\t"];
                     if (arr.count > 1 && arr[0].length > 0 && arr[1].length > 0 && [arr[0] isEqualToString:@"ENG"]) {
@@ -224,7 +234,7 @@
                         [koSourceData setValue:arr[1] forKey:key];
                     }
                 }
-
+                
                 if (i + 2 < fileArr.count) {
                     NSArray<NSString *> *arr = [fileArr[i + 2] componentsSeparatedByString:@"\t"];
                     if (arr.count > 1 && arr[0].length > 0 && arr[1].length > 0 && [arr[0] isEqualToString:@"KR"]) {
@@ -250,21 +260,21 @@
             [koSourceData setValue:value forKey:key];
         }
         
-//        NSString *kk;
-//        NSString *vv;
-//        if (arr.count > 0 && arr[0].length > 0) {
-//            NSString *key = [self getKeyFromIOSString:arr[0]];
-//            NSString *value = [self getValueFromIOSString:arr[0]];
-//            kk = value;
-//        }
-//        if (arr.count > 1 && arr[1].length > 0) {
-//            NSString *key = [self getKeyFromIOSString:arr[1]];
-//            NSString *value = [self getValueFromIOSString:arr[1]];
-//            vv = value;
-//        }
-//        if (vv && kk) {
-//            [koSourceData setValue:vv forKey:kk];
-//        }
+        //        NSString *kk;
+        //        NSString *vv;
+        //        if (arr.count > 0 && arr[0].length > 0) {
+        //            NSString *key = [self getKeyFromIOSString:arr[0]];
+        //            NSString *value = [self getValueFromIOSString:arr[0]];
+        //            kk = value;
+        //        }
+        //        if (arr.count > 1 && arr[1].length > 0) {
+        //            NSString *key = [self getKeyFromIOSString:arr[1]];
+        //            NSString *value = [self getValueFromIOSString:arr[1]];
+        //            vv = value;
+        //        }
+        //        if (vv && kk) {
+        //            [koSourceData setValue:vv forKey:kk];
+        //        }
     }
     
     ///==========1.匹配源文件的英文和韩语有没有缺失================
@@ -311,12 +321,22 @@
         
         BOOL haveEn = NO;
         BOOL haveKo = NO;
-        if ([enSourceData objectForKey:value] != nil) {
-            [resultEn addObject:[NSString stringWithFormat:formatStr, key, [enSourceData objectForKey:value]]];
+        NSString *str = [enSourceData objectForKey:value];
+        if (str != nil && ![str isEqualToString:@""]) {
+            NSString *item = [NSString stringWithFormat:formatStr, key, str];
+            if ([item containsString:@"\"\""]) {
+                item = [item stringByReplacingOccurrencesOfString:@"\"\"" withString:@"\""];
+            }
+            [resultEn addObject:item];
             haveEn = YES;
         }
-        if ([koSourceData objectForKey:value] != nil) {
-            [resultKo addObject:[NSString stringWithFormat:formatStr, key, [koSourceData objectForKey:value]]];
+        str = [koSourceData objectForKey:value];
+        if (str != nil && ![str isEqualToString:@""]) {
+            NSString *item = [NSString stringWithFormat:formatStr, key, str];
+            if ([item containsString:@"\"\""]) {
+                item = [item stringByReplacingOccurrencesOfString:@"\"\"" withString:@"\""];
+            }
+            [resultKo addObject:item];
             haveKo = YES;
         }
         
