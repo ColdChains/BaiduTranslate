@@ -82,11 +82,17 @@
             key = [key stringByReplacingOccurrencesOfString:@"," withString:@""];
             key = [key stringByReplacingOccurrencesOfString:@"." withString:@""];
             key = [key stringByReplacingOccurrencesOfString:@"?" withString:@""];
+            key = [key stringByReplacingOccurrencesOfString:@"？" withString:@""];
             key = [key stringByReplacingOccurrencesOfString:@":" withString:@""];
+            key = [key stringByReplacingOccurrencesOfString:@"：" withString:@""];
             key = [key stringByReplacingOccurrencesOfString:@"(" withString:@""];
             key = [key stringByReplacingOccurrencesOfString:@")" withString:@""];
+            key = [key stringByReplacingOccurrencesOfString:@"{" withString:@""];
+            key = [key stringByReplacingOccurrencesOfString:@"}" withString:@""];
             key = [key stringByReplacingOccurrencesOfString:@"&" withString:@""];
             key = [key stringByReplacingOccurrencesOfString:@"'" withString:@""];
+            key = [key stringByReplacingOccurrencesOfString:@"\"" withString:@""];
+            key = [key stringByReplacingOccurrencesOfString:@"”" withString:@""];
             key = [key stringByReplacingOccurrencesOfString:@"/" withString:@"Or"];
             [keyArr addObject:key];
             

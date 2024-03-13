@@ -8,6 +8,13 @@
 #import "VPOViewController.h"
 #import "NSString+trim.h"
 
+typedef NS_ENUM(NSUInteger, PlatForm) {
+    PlatFormIos,
+    PlatFormAndroid,
+    PlatFormFlutter,
+    PlatFormPC,
+};
+
 @interface VPOViewController ()
 {
     NSArray<NSString *> *resourceArray;
@@ -23,19 +30,19 @@
 }
 
 - (IBAction)iOSAction:(id)sender {
-    [self startSearchInBank:YES oldBank:NO planform:0];
+    [self startSearchInBank:YES oldBank:NO platform:PlatFormIos];
 }
 
 - (IBAction)androidAction:(id)sender {
-    [self startSearchInBank:YES oldBank:NO planform:1];
+    [self startSearchInBank:YES oldBank:NO platform:PlatFormAndroid];
 }
 
 - (IBAction)flutterAction:(id)sender {
-    [self startSearchInBank:YES oldBank:NO planform:2];
+    [self startSearchInBank:YES oldBank:NO platform:PlatFormFlutter];
 }
 
 - (IBAction)pcAction:(id)sender {
-    [self startSearchInBank:YES oldBank:NO planform:3];
+    [self startSearchInBank:YES oldBank:NO platform:PlatFormPC];
 }
 
 - (NSString *)getKeyFromIOSString:(NSString *)current {
@@ -98,8 +105,8 @@
 /// - Parameters:
 ///   - isInBank: true:在bank-new文件里匹配 false:在源文件里匹配
 ///   - oldBank: 在bank-new、bank-old文件里匹配
-///   - planform: 0 ios 1 android 2 flutter 3 PC
-- (void)startSearchInBank:(BOOL)isInBank oldBank:(BOOL)oldBank planform:(NSInteger)planform {
+///   - platform: 0 ios 1 android 2 flutter 3 PC
+- (void)startSearchInBank:(BOOL)isInBank oldBank:(BOOL)oldBank platform:(NSInteger)platform {
     NSMutableArray *resultZh = [NSMutableArray array];
     // 匹配到的英文
     NSMutableArray *resultEn = [NSMutableArray array];
@@ -111,7 +118,7 @@
     NSMutableArray *blankKo = [NSMutableArray array];
     
     // 读取源文件
-    NSString *path = [[NSBundle mainBundle] pathForResource:resourceArray[planform] ofType:@"xls"];
+    NSString *path = [[NSBundle mainBundle] pathForResource:resourceArray[platform] ofType:@"xls"];
     NSArray *dataArray = [self readFileFromPath:path];
     NSMutableArray *keyArr = [NSMutableArray array];
     NSMutableArray *valueArr = [NSMutableArray array];
@@ -120,9 +127,9 @@
     NSMutableDictionary *oriSourceDataKo = [NSMutableDictionary dictionary];
     // <key>第1次</key><string>第1次</string>
     NSString *formatStr;
-    if (planform == 0) {
+    if (platform == PlatFormIos) {
         formatStr = @"<key>%@</key><string>%@</string>";
-    } else if (planform == 1) {
+    } else if (platform == PlatFormAndroid) {
         // <string name="shouye">首页</string>
         formatStr = @"<string name=\"%@\">%@</string>";
     } else {
@@ -139,10 +146,10 @@
             NSString *current = arr[0];
             NSString *key;
             NSString *value;
-            if (planform == 0) {
+            if (platform == PlatFormIos) {
                 key = [self getKeyFromIOSString:current];
                 value = [self getValueFromIOSString:current];
-            } else if (planform == 1) {
+            } else if (platform == PlatFormAndroid) {
                 key = [self getKeyFromAndroidString:current];
                 value = [self getValueFromAndroidString:current];
             } else {
@@ -165,10 +172,10 @@
             NSString *current = arr[1];
             NSString *key;
             NSString *value;
-            if (planform == 0) {
+            if (platform == PlatFormIos) {
                 key = [self getKeyFromIOSString:current];
                 value = [self getValueFromIOSString:current];
-            } else if (planform == 1) {
+            } else if (platform == PlatFormAndroid) {
                 key = [self getKeyFromAndroidString:current];
                 value = [self getValueFromAndroidString:current];
             } else {
@@ -189,10 +196,10 @@
             NSString *current = arr[2];
             NSString *key;
             NSString *value;
-            if (planform == 0) {
+            if (platform == PlatFormIos) {
                 key = [self getKeyFromIOSString:current];
                 value = [self getValueFromIOSString:current];
-            } else if (planform == 1) {
+            } else if (platform == PlatFormAndroid) {
                 key = [self getKeyFromAndroidString:current];
                 value = [self getValueFromAndroidString:current];
             } else {
@@ -356,7 +363,7 @@
     NSLog(@"\n 匹配到的韩语 = \n%@", resultKo);
     NSLog(@"\n 未匹配到的英文 = \n%@", blankEn);
     NSLog(@"\n 未匹配到的韩语 = \n%@", blankKo);
-    NSLog(@"%@匹配完成", resourceArray[planform]);
+    NSLog(@"%@匹配完成", resourceArray[platform]);
     
 }
 
