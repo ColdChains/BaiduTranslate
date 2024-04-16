@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -43,9 +43,8 @@
                         <action selector="flutterAction:" destination="-1" eventType="touchUpInside" id="1zI-ZT-3so"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L7C-We-DJp">
-                    <rect key="frame" x="153" y="434" width="88" height="35"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L7C-We-DJp">
+                    <rect key="frame" x="152.66666666666666" y="428" width="88" height="35"/>
                     <state key="normal" title="Button"/>
                     <buttonConfiguration key="configuration" style="plain" title="Start PC"/>
                     <connections>
@@ -56,7 +55,9 @@
             <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstItem="L7C-We-DJp" firstAttribute="top" secondItem="JIW-9M-E2O" secondAttribute="bottom" constant="66" id="EMn-qq-9Hr"/>
                 <constraint firstItem="VGp-1x-vT6" firstAttribute="top" secondItem="e8P-Nb-Ekq" secondAttribute="bottom" constant="66" id="NfR-in-jFA"/>
+                <constraint firstItem="L7C-We-DJp" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="YJs-JX-mjB"/>
                 <constraint firstItem="e8P-Nb-Ekq" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" constant="66" id="aSL-sB-Wrf"/>
                 <constraint firstItem="JIW-9M-E2O" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="bsf-Bh-8Bz"/>
                 <constraint firstItem="e8P-Nb-Ekq" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="jWF-VX-5Er"/>

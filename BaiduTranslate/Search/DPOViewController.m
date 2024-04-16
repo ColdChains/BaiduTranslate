@@ -29,11 +29,11 @@
 
 - (void)runAndroid {
     // 读取需要翻译的文件(英文)
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"android" ofType:@"xls"];
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"dpo-android" ofType:@"xls"];
     NSArray<NSString *> *dataArray = [self readFileFromPath:path];
     
     // 读取资源文件(英-越南)
-    NSString *path2 = [[NSBundle mainBundle] pathForResource:@"bank" ofType:@"xls"];
+    NSString *path2 = [[NSBundle mainBundle] pathForResource:@"dpo-bank" ofType:@"xls"];
     NSArray<NSString *> *sourceDataArray = [self readFileFromPath:path2];
     
     // 匹配到的越南语
@@ -84,11 +84,11 @@
 
 - (void)runIOS {
     // 读取需要翻译的文件
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"ios" ofType:@"xls"];
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"dpo-ios" ofType:@"xls"];
     NSArray<NSString *> *dataArray = [self readFileFromPath:path];
     
     // 读取资源文件
-    NSString *path2 = [[NSBundle mainBundle] pathForResource:@"bank" ofType:@"xls"];
+    NSString *path2 = [[NSBundle mainBundle] pathForResource:@"dpo-bank" ofType:@"xls"];
     NSArray<NSString *> *sourceDataArray = [self readFileFromPath:path2];
     
     // 匹配到的越南语

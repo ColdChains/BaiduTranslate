@@ -18,6 +18,7 @@ typedef NS_ENUM(NSUInteger, PlatForm) {
 @interface VPOViewController ()
 {
     NSArray<NSString *> *resourceArray;
+    NSString *newBankName;
 }
 @end
 
@@ -26,7 +27,17 @@ typedef NS_ENUM(NSUInteger, PlatForm) {
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"VPO";
-    resourceArray = @[@"vpo-ios", @"vpo-android", @"vpo-flutter", @"vpo-pc"];
+    resourceArray = @[
+        @"vpo-ios",
+        @"vpo-android",
+//        @"vpo-flutter",
+//        @"ep-flutter",
+        @"mio-flutter",
+        @"vpo-pc",
+    ];
+//    newBankName = @"vpo-bank-new";
+//    newBankName = @"ep-bank-new";
+    newBankName = @"mio-bank";
 }
 
 - (IBAction)iOSAction:(id)sender {
@@ -255,7 +266,7 @@ typedef NS_ENUM(NSUInteger, PlatForm) {
     
     ///==========读取新翻译库================
     
-    NSString *bankPathNew = [[NSBundle mainBundle] pathForResource:@"vpo-bank-new" ofType:@"xls"];
+    NSString *bankPathNew = [[NSBundle mainBundle] pathForResource:newBankName ofType:@"xls"];
     NSArray *fileArrNew = [self readFileFromPath:bankPathNew];
     for (NSString *item in fileArrNew) {
         NSArray<NSString *> *arr = [item componentsSeparatedByString:@"\t"];
