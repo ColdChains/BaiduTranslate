@@ -26,13 +26,13 @@
             filePath = "BaiduTranslate/Search/VPOViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "311"
-            endingLineNumber = "311"
-            landmarkName = "-startSearchInBank:oldBank:planform:"
+            startingLineNumber = "318"
+            endingLineNumber = "318"
+            landmarkName = "-startSearchInBank:oldBank:platform:"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "2B277BED-30FD-43A4-A681-87A23E3B3DA4 - 195ba0ad564c48b2"
+                  uuid = "2B277BED-30FD-43A4-A681-87A23E3B3DA4 - 195ba0ad564c4daa"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -42,12 +42,12 @@
                   urlString = "file:///Users/lax/Desktop/github/OC/BaiduTranslate/BaiduTranslate/Search/VPOViewController.m"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "311"
-                  endingLineNumber = "311"
-                  offsetFromSymbolStart = "8028">
+                  startingLineNumber = "335"
+                  endingLineNumber = "335"
+                  offsetFromSymbolStart = "9032">
                </Location>
                <Location
-                  uuid = "2B277BED-30FD-43A4-A681-87A23E3B3DA4 - 195ba0ad564c48b2"
+                  uuid = "2B277BED-30FD-43A4-A681-87A23E3B3DA4 - 195ba0ad564c4e26"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -57,23 +57,23 @@
                   urlString = "file:///Users/lax/Desktop/github/OC/BaiduTranslate/BaiduTranslate/Search/VPOViewController.m"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "311"
-                  endingLineNumber = "311"
-                  offsetFromSymbolStart = "8032">
+                  startingLineNumber = "331"
+                  endingLineNumber = "331"
+                  offsetFromSymbolStart = "9016">
                </Location>
                <Location
-                  uuid = "2B277BED-30FD-43A4-A681-87A23E3B3DA4 - 195ba0ad564c48b2"
+                  uuid = "2B277BED-30FD-43A4-A681-87A23E3B3DA4 - a6d23255d496639d"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "-[VPOViewController startSearchInBank:oldBank:planform:]"
+                  symbolName = "-[VPOViewController startSearchInBank:oldBank:platform:]"
                   moduleName = "BaiduTranslate"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/lax/Desktop/github/OC/BaiduTranslate/BaiduTranslate/Search/VPOViewController.m"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "311"
-                  endingLineNumber = "311"
+                  startingLineNumber = "318"
+                  endingLineNumber = "318"
                   offsetFromSymbolStart = "8072">
                </Location>
             </Locations>
@@ -89,13 +89,13 @@
             filePath = "BaiduTranslate/Translate/TranslateViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "146"
-            endingLineNumber = "146"
+            startingLineNumber = "149"
+            endingLineNumber = "149"
             landmarkName = "-translateToKor:keyArr:result:"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "C46B3E23-54F4-4276-A477-56E893CA37DD - f097c621ee1e7ae3"
+                  uuid = "C46B3E23-54F4-4276-A477-56E893CA37DD - f097c621ee1e7967"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -105,12 +105,12 @@
                   urlString = "file:///Users/lax/Desktop/github/OC/BaiduTranslate/BaiduTranslate/Translate/TranslateViewController.m"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "146"
-                  endingLineNumber = "146"
+                  startingLineNumber = "150"
+                  endingLineNumber = "150"
                   offsetFromSymbolStart = "808">
                </Location>
                <Location
-                  uuid = "C46B3E23-54F4-4276-A477-56E893CA37DD - 78a677e023ac4ff1"
+                  uuid = "C46B3E23-54F4-4276-A477-56E893CA37DD - 78a677e023ac4f7d"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -120,12 +120,12 @@
                   urlString = "file:///Users/lax/Desktop/github/OC/BaiduTranslate/BaiduTranslate/Translate/TranslateViewController.m"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "147"
-                  endingLineNumber = "147"
+                  startingLineNumber = "151"
+                  endingLineNumber = "151"
                   offsetFromSymbolStart = "52">
                </Location>
                <Location
-                  uuid = "C46B3E23-54F4-4276-A477-56E893CA37DD - f097c621ee1e7ae3"
+                  uuid = "C46B3E23-54F4-4276-A477-56E893CA37DD - f097c621ee1e65c9"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -135,12 +135,12 @@
                   urlString = "file:///Users/lax/Desktop/github/OC/BaiduTranslate/BaiduTranslate/Translate/TranslateViewController.m"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "146"
-                  endingLineNumber = "146"
+                  startingLineNumber = "184"
+                  endingLineNumber = "184"
                   offsetFromSymbolStart = "792">
                </Location>
                <Location
-                  uuid = "C46B3E23-54F4-4276-A477-56E893CA37DD - f097c621ee1e7ac2"
+                  uuid = "C46B3E23-54F4-4276-A477-56E893CA37DD - f097c621ee1e782d"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -150,42 +150,11 @@
                   urlString = "file:///Users/lax/Desktop/github/OC/BaiduTranslate/BaiduTranslate/Translate/TranslateViewController.m"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "145"
-                  endingLineNumber = "145"
-                  offsetFromSymbolStart = "792">
-               </Location>
-               <Location
-                  uuid = "C46B3E23-54F4-4276-A477-56E893CA37DD - f097c621ee1e7a80"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__56-[TranslateViewController translateToKor:keyArr:result:]_block_invoke"
-                  moduleName = "BaiduTranslate"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/lax/Desktop/github/OC/BaiduTranslate/BaiduTranslate/Translate/TranslateViewController.m"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "143"
-                  endingLineNumber = "143"
+                  startingLineNumber = "156"
+                  endingLineNumber = "156"
                   offsetFromSymbolStart = "792">
                </Location>
             </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "0C1437C8-E28C-48F5-BB03-58FD8A630834"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "BaiduTranslate/Search/VPOViewController.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "215"
-            endingLineNumber = "215"
-            landmarkName = "-startSearchInBank:oldBank:planform:"
-            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -198,9 +167,88 @@
             filePath = "BaiduTranslate/Search/VPOViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "355"
-            endingLineNumber = "355"
-            landmarkName = "-startSearchInBank:oldBank:planform:"
+            startingLineNumber = "362"
+            endingLineNumber = "362"
+            landmarkName = "-startSearchInBank:oldBank:platform:"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "593499CE-C84D-42A6-9568-FA7AE46DF001 - 195ba0ad564c5072"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[VPOViewController startSearchInBank:oldBank:planform:]"
+                  moduleName = "BaiduTranslate"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lax/Desktop/github/OC/BaiduTranslate/BaiduTranslate/Search/VPOViewController.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "375"
+                  endingLineNumber = "375"
+                  offsetFromSymbolStart = "10528">
+               </Location>
+               <Location
+                  uuid = "593499CE-C84D-42A6-9568-FA7AE46DF001 - 195ba0ad564c5072"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[VPOViewController startSearchInBank:oldBank:planform:]"
+                  moduleName = "BaiduTranslate"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lax/Desktop/github/OC/BaiduTranslate/BaiduTranslate/Search/VPOViewController.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "375"
+                  endingLineNumber = "375"
+                  offsetFromSymbolStart = "10500">
+               </Location>
+               <Location
+                  uuid = "593499CE-C84D-42A6-9568-FA7AE46DF001 - a6d23255d4967e21"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[VPOViewController startSearchInBank:oldBank:platform:]"
+                  moduleName = "BaiduTranslate"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lax/Desktop/github/OC/BaiduTranslate/BaiduTranslate/Search/VPOViewController.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "362"
+                  endingLineNumber = "362"
+                  offsetFromSymbolStart = "9556">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "DF9409A0-296C-48E3-8BA1-FF966FD72B6B"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BaiduTranslate/Translate/TranslateViewController.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "105"
+            endingLineNumber = "105"
+            landmarkName = "-translate:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D5ECC70A-F141-41FB-A73D-6408C5300886"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BaiduTranslate/Translate/TranslateViewController.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
+            landmarkName = "-vpoAction:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -25,11 +25,7 @@
     // flutter文件格式翻译
     // 在此设置需要翻译的文字 在"翻译完成"处查看打印结果
     NSArray *arr = @[
-        @"今日MCL",
-        @"其他频率",
-        @"待审批",
-        @"今日任务",
-        @"未来7天任务",
+        @"手机号",
     ];
     [self translate:arr];
 }
@@ -90,6 +86,7 @@
             key = [key stringByReplacingOccurrencesOfString:@"{" withString:@""];
             key = [key stringByReplacingOccurrencesOfString:@"}" withString:@""];
             key = [key stringByReplacingOccurrencesOfString:@"&" withString:@""];
+            key = [key stringByReplacingOccurrencesOfString:@"-" withString:@""];
             key = [key stringByReplacingOccurrencesOfString:@"'" withString:@""];
             key = [key stringByReplacingOccurrencesOfString:@"\"" withString:@""];
             key = [key stringByReplacingOccurrencesOfString:@"”" withString:@""];
@@ -143,7 +140,7 @@
         
         for (NSDictionary *dic in trans) {
             NSString *dst = dic[@"dst"]; // 韩
-            [koArr addObject:[NSString stringWithFormat:@"\"%@\" : \"%@\"", keyArr[[trans indexOfObject:dic]], dst]];
+            [koArr addObject:[NSString stringWithFormat:@"\"%@\": \"%@\"", keyArr[[trans indexOfObject:dic]], dst]];
         }
         
         NSString *koStr = [koArr componentsJoinedByString:@",\n"];
