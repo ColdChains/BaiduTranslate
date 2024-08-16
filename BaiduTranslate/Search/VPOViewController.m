@@ -36,7 +36,7 @@ typedef NS_ENUM(NSUInteger, PlatForm) {
         @"vpo-pc",
     ];
 //    newBankName = @"vpo-bank-new";
-//    newBankName = @"ep-bank-new";
+//    newBankName = @"ep-bank";
     newBankName = @"mio-bank";
 }
 
@@ -115,9 +115,9 @@ typedef NS_ENUM(NSUInteger, PlatForm) {
 
 /// - Parameters:
 ///   - isInBank: true:在bank-new文件里匹配 false:在源文件里匹配
-///   - oldBank: 在bank-new、bank-old文件里匹配
+///   - inOldBank: 在bank-new、bank-old文件里匹配
 ///   - platform: 0 ios 1 android 2 flutter 3 PC
-- (void)startSearchInBank:(BOOL)isInBank oldBank:(BOOL)oldBank platform:(NSInteger)platform {
+- (void)startSearchInBank:(BOOL)isInBank oldBank:(BOOL)inOldBank platform:(NSInteger)platform {
     NSMutableArray *resultZh = [NSMutableArray array];
     // 匹配到的英文
     NSMutableArray *resultEn = [NSMutableArray array];
@@ -234,7 +234,7 @@ typedef NS_ENUM(NSUInteger, PlatForm) {
     NSMutableDictionary *koSourceData = [NSMutableDictionary dictionary];
     
     // 读取旧翻译库
-    if (oldBank) {
+    if (inOldBank) {
         NSString *bankPath = [[NSBundle mainBundle] pathForResource:@"vpo-bank-old" ofType:@"xls"];
         NSArray *fileArr = [self readFileFromPath:bankPath];
         int i = 0;
