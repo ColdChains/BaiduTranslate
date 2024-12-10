@@ -228,6 +228,38 @@ typedef NS_ENUM(NSUInteger, PlatForm) {
         }
     }
     
+    NSMutableArray *resZArr = [NSMutableArray array];
+    NSMutableArray *resEArr = [NSMutableArray array];
+    for (int i = 0; i < keyArr.count; i++) {
+        NSString *v = oriSourceDataZh[keyArr[i]];
+        if (v.length > 0) {
+            [resZArr addObject: v];
+        } else {
+            [resZArr addObject: @""];
+        }
+        v = oriSourceDataEn[keyArr[i]];
+        if (v.length > 0) {
+            [resEArr addObject: v];
+        } else {
+            [resEArr addObject: @""];
+        }
+    }
+    
+    NSMutableArray *blaArr = [NSMutableArray array];
+    NSMutableArray *blaEArr = [NSMutableArray array];
+    NSArray *allKey = oriSourceDataEn.allKeys;
+    for (int i = 0; i < allKey.count; i++) {
+        if (![keyArr containsObject:allKey[i]]) {
+            [blaArr addObject:allKey[i]];
+            NSString *v = oriSourceDataEn[allKey[i]];
+            if (v.length > 0) {
+                [blaEArr addObject: v];
+            } else {
+                [blaEArr addObject: @""];
+            }
+        }
+    }
+    
     ///==========读取旧翻译库================
     
     NSMutableDictionary *enSourceData = [NSMutableDictionary dictionary];
@@ -268,14 +300,26 @@ typedef NS_ENUM(NSUInteger, PlatForm) {
     
     NSString *bankPathNew = [[NSBundle mainBundle] pathForResource:newBankName ofType:@"xls"];
     NSArray *fileArrNew = [self readFileFromPath:bankPathNew];
+    NSMutableArray *repeatArr1 = [NSMutableArray array];
+    NSMutableArray *repeatArr2 = [NSMutableArray array];
+    NSMutableArray *repeatArr3 = [NSMutableArray array];
     for (NSString *item in fileArrNew) {
         NSArray<NSString *> *arr = [item componentsSeparatedByString:@"\t"];
         if (arr.count > 0 && arr[0].length > 0) {
             NSString *key = arr[0];
+            if (![enSourceData.allKeys containsObject:key]) {
+                [repeatArr1 addObject:key];
+                [repeatArr2 addObject:arr.count > 1 ? arr[1] : @""];
+                [repeatArr3 addObject:arr.count > 2 ? arr[2] : @""];
+            }
             NSString *value = arr.count > 1 ? arr[1] : @"";
-            [enSourceData setValue:value forKey:key];
+            if (![enSourceData.allKeys containsObject:key]) {
+                [enSourceData setValue:value forKey:key];
+            }
             value = arr.count > 2 ? arr[2] : @"";
-            [koSourceData setValue:value forKey:key];
+            if (![enSourceData.allKeys containsObject:key]) {
+                [koSourceData setValue:value forKey:key];
+            }
         }
         
         //        NSString *kk;

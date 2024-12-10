@@ -91,6 +91,8 @@
     NSString *path2 = [[NSBundle mainBundle] pathForResource:@"dpo-bank" ofType:@"xls"];
     NSArray<NSString *> *sourceDataArray = [self readFileFromPath:path2];
     
+    NSMutableArray *keyArr = [NSMutableArray array];
+    NSMutableArray *valueArr = [NSMutableArray array];
     // 匹配到的越南语
     NSMutableArray *result = [NSMutableArray array];
     NSMutableArray *resultVi = [NSMutableArray array];
@@ -117,7 +119,8 @@
         
         // "login" = "Log in";
         NSString *formatStr = @"\"%@\" = \"%@\";";
-        
+        [keyArr addObject:key];
+        [valueArr addObject:value];
         BOOL have = NO;
         for (int i = 0; i < sourceDataArray.count / 2; i+=2) {
             if ([value.lowercaseString isEqualToString:sourceDataArray[i].lowercaseString]) {
